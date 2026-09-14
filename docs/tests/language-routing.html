@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Go Agentic language-routing browser regression</title>
+    <style>
+        body { font: 16px/1.5 system-ui, sans-serif; margin: 2rem; }
+        #fixture { height: 1px; width: 1px; border: 0; position: absolute; left: -9999px; }
+        .pass { color: #087f23; }
+        .fail { color: #b42318; }
+    </style>
+</head>
+<body data-status="running">
+    <h1>Language-routing browser regression</h1>
+    <p id="summary">Running…</p>
+    <ol id="results"></ol>
+    <iframe id="fixture" title="Docsify routing fixture"></iframe>
+    <script>
+        const cases = [
+            {
+                name: 'persisted English redirects a Chinese route',
+                preferred: 'en',
+                route: '#/chapter4/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%BB%8F%E5%85%B8%E8%8C%83%E5%BC%8F%E6%9E%84%E5%BB%BA.md',
+                expectedRoute: '#/en/chapter4/Chapter4-Building-Classic-Agent-Paradigms.md',
+                expectedButton: '中文',
+                expectedH1: 'Chapter 4: Agent Design Patterns and Loops'
+            },
+            {
+                name: 'direct English route keeps its route and label',
+                preferred: 'en',
+                route: '#/en/chapter7/Chapter7-Building-Your-Agent-Framework.md',
+                expectedRoute: '#/en/chapter7/Chapter7-Building-Your-Agent-Framework.md',
+                expectedButton: '中文',
+                expectedH1: 'Chapter 7: Modern Agent Runtimes: Pi as the Mainline'
+            },
+            {
+                name: 'persisted Chinese redirects an English route',
+                preferred: 'zh',
+                route: '#/en/chapter7/Chapter7-Building-Your-Agent-Framework.md',
+                expectedRoute: '#/chapter7/第七章 构建你的Agent框架.md',
+                expectedButton: 'English',
+                expectedH1: '第七章 现代智能体运行时：以 Pi 为主线'
+            },
+            {
+                name: 'direct Chinese route keeps its route and label',
+                preferred: 'zh',
+                route: '#/chapter4/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E6%99%BA%E8%83%BD%E4%BD%93%E7%BB%8F%E5%85%B8%E8%8C%83%E5%BC%8F%E6%9E%84%E5%BB%BA.md',
+                expectedRoute: '#/chapter4/第四章 智能体经典范式构建.md',
+                expectedButton: 'English',
+                expectedH1: '第四章 Agent 设计模式与 Loop'
+            }
+        ];
+
+        const frame = document.getElementById('fixture');
+        const results = document.getElementById('results');
+
+        function waitFor(check, timeoutMs = 15000) {
+            return new Promise((resolve, reject) => {
+                const deadline = Date.now() + timeoutMs;
+                const timer = setInterval(() => {
+                    try {
+                        const value = check();
+                        if (value) {
+                            clearInterval(timer);
+                            resolve(value);
+                        } else if (Date.now() > deadline) {
+                            clearInterval(timer);
+                            reject(new Error('timed out waiting for routed DOM'));
+                        }
+                    } catch (error) {
+                        if (Date.now() > deadline) {
+                            clearInterval(timer);
+                            reject(error);
+                        }
+                    }
+                }, 50);
+            });
+        }
+
+        async function runCase(testCase, index) {
+            localStorage.setItem('preferredLanguage', testCase.preferred);
+            frame.src = `../?routing-check=${Date.now()}-${index}${testCase.route}`;
+            await waitFor(() => {
+                const document = frame.contentDocument;
+                const route = decodeURIComponent(frame.contentWindow.location.hash);
+                const button = document?.getElementById('langBtn')?.textContent;
+                const h1 = document?.querySelector('main .markdown-section h1')?.textContent;
+                return route === testCase.expectedRoute && h1
+                    ? { route, button, h1 }
+                    : null;
+            }).then(actual => {
+                if (actual.button !== testCase.expectedButton || actual.h1 !== testCase.expectedH1) {
+                    throw new Error(
+                        `got route=${actual.route}, button=${actual.button}, h1=${actual.h1}`
+                    );
+                }
+            });
+        }
+
+        (async () => {
+            let failures = 0;
+            for (const [index, testCase] of cases.entries()) {
+                const item = document.createElement('li');
+                try {
+                    await runCase(testCase, index);
+                    item.className = 'pass';
+                    item.textContent = `PASS — ${testCase.name}`;
+                } catch (error) {
+                    failures += 1;
+                    item.className = 'fail';
+                    item.textContent = `FAIL — ${testCase.name}: ${error.message}`;
+                }
+                results.appendChild(item);
+            }
+            localStorage.removeItem('preferredLanguage');
+            document.body.dataset.status = failures ? 'failed' : 'passed';
+            document.getElementById('summary').textContent = failures
+                ? `${failures}/${cases.length} checks failed`
+                : `${cases.length}/${cases.length} checks passed`;
+        })();
+    </script>
+</body>
+</html>

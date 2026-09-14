@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Go Agentic</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Go Agentic: a practical course in modern agent engineering">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css">
+    <style>
+        :root {
+            --brand-blue: #2563EB;
+            --brand-cyan: #06B6D4;
+            --brand-amber: #F59E0B;
+            --diagram-data-stroke: #0E7490;
+            --diagram-control-stroke: #2563EB;
+            --diagram-failure-stroke: #64748B;
+            --diagram-approval-stroke: #B45309;
+            --light-bg: #F7F9FC;
+            --light-surface: #FFFFFF;
+            --light-border: #D9E3F0;
+            --dark-bg: #0B1220;
+            --dark-text: #CBD5E1;
+            --dark-sidebar: #0F172A;
+            --dark-code-bg: #111827;
+            --dark-border: #24324A;
+            --theme-color: var(--brand-blue);
+        }
+
+        body {
+            background-color: var(--light-bg);
+        }
+
+        .sidebar {
+            background-color: var(--light-surface);
+            border-right-color: var(--light-border);
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 80px;
+            z-index: 999;
+        }
+
+        .learning-path-switch {
+            align-items: center;
+            background: rgba(247, 249, 252, 0.96);
+            border: 1px solid var(--light-border);
+            border-radius: 999px;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.09);
+            display: flex;
+            gap: 8px;
+            margin: 0 0 28px auto;
+            max-width: 100%;
+            padding: 4px 5px 4px 12px;
+            position: relative;
+            top: -20px;
+            width: max-content;
+        }
+
+        .learning-path-label {
+            color: #475569;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .learning-path-options {
+            --path-index: 0;
+            background: #E8EEF7;
+            border-radius: 999px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(88px, 1fr));
+            isolation: isolate;
+            padding: 3px;
+            position: relative;
+        }
+
+        .learning-path-indicator {
+            background: var(--brand-cyan);
+            border-radius: 999px;
+            bottom: 3px;
+            box-shadow: 0 2px 8px rgba(6, 182, 212, 0.24);
+            left: 3px;
+            position: absolute;
+            top: 3px;
+            transform: translateX(calc(var(--path-index) * 100%));
+            transition: transform 180ms ease;
+            width: calc((100% - 6px) / 3);
+            z-index: -1;
+        }
+
+        .learning-path-option {
+            align-items: center;
+            background: transparent;
+            border: 0;
+            border-radius: 999px;
+            color: #475569;
+            cursor: pointer;
+            display: flex;
+            font-size: 12px;
+            font-weight: 600;
+            justify-content: center;
+            min-height: 28px;
+            padding: 4px 10px;
+            position: relative;
+            text-decoration: none;
+            transition: color 180ms ease;
+            white-space: nowrap;
+        }
+
+        .learning-path-option[aria-pressed="true"] {
+            color: #083344;
+        }
+
+        .learning-path-option:focus-visible {
+            outline: 2px solid var(--brand-blue);
+            outline-offset: 2px;
+        }
+
+        .learning-route-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin: 18px 0 14px;
+        }
+
+        .learning-route-grid.route-filtered {
+            grid-template-columns: minmax(0, 720px);
+        }
+
+        .learning-path-notice {
+            background: #FFFBEB;
+            border: 1px solid #F6C453;
+            border-radius: 8px;
+            color: #78350F;
+            font-size: 14px;
+            margin: -12px 0 28px;
+            padding: 12px 14px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        html.learning-path-pending .sidebar-nav,
+        html.learning-path-pending .markdown-section {
+            visibility: hidden;
+        }
+
+        .learning-route-card {
+            background: var(--light-surface);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            min-height: 220px;
+            padding: 20px;
+            scroll-margin-top: 82px;
+        }
+
+        .learning-route-card.recommended {
+            background: #FFFCF5;
+            border-color: var(--brand-amber);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.11);
+        }
+
+        .learning-route-badge {
+            color: #B45309;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+
+        .learning-route-card h3 {
+            margin: 0 0 8px;
+        }
+
+        .learning-route-card p {
+            color: #64748B;
+            font-size: 14px;
+            margin: 0 0 10px;
+        }
+
+        .learning-route-card .learning-route-sequence {
+            color: #1E3A5F;
+            font-weight: 600;
+        }
+
+        .learning-route-card .learning-route-action {
+            align-self: flex-start;
+            background: var(--theme-color);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: auto;
+            padding: 8px 12px;
+            text-decoration: none;
+        }
+
+        .lang-switch button,
+        .sidebar-toggle-btn {
+            background: var(--brand-blue);
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+
+        .sidebar-toggle-btn {
+            display: block;
+            margin: 0 15px 10px;
+            text-align: center;
+            width: calc(100% - 30px);
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .sidebar {
+            background-color: var(--dark-sidebar);
+            border-right: 1px solid var(--dark-border);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .learning-path-switch,
+        body.dark-mode .learning-route-card {
+            background: #111C2F;
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .learning-path-options {
+            background: #1E293B;
+        }
+
+        body.dark-mode .learning-path-label,
+        body.dark-mode .learning-path-option,
+        body.dark-mode .learning-route-card p {
+            color: #A9B8CC;
+        }
+
+        body.dark-mode .learning-path-option[aria-pressed="true"] {
+            color: #083344;
+        }
+
+        body.dark-mode .learning-route-card .learning-route-action {
+            color: #fff;
+        }
+
+        body.dark-mode .learning-route-card .learning-route-sequence {
+            color: #E2E8F0;
+        }
+
+        body.dark-mode .learning-route-card.recommended {
+            background: #191A22;
+            border-color: var(--brand-amber);
+        }
+
+        body.dark-mode .learning-route-badge {
+            color: #FBBF24;
+        }
+
+        body.dark-mode .learning-path-notice {
+            background: #2A2112;
+            border-color: #8A5A0A;
+            color: #FCD68A;
+        }
+
+        body.dark-mode .sidebar-nav li a {
+            color: #94A3B8;
+        }
+
+        body.dark-mode .sidebar-nav li.active > a {
+            border-right: 2px solid var(--theme-color);
+            color: var(--theme-color);
+        }
+
+        body.dark-mode pre,
+        body.dark-mode code {
+            background-color: var(--dark-code-bg) !important;
+        }
+
+        body.dark-mode code,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: #E2E8F0;
+        }
+
+        body.dark-mode .markdown-section code {
+            background-color: rgba(37, 99, 235, 0.14);
+            color: #67E8F9;
+        }
+
+        body.dark-mode blockquote {
+            background: rgba(37, 99, 235, 0.08);
+            border-left-color: var(--theme-color);
+            color: #A9B8CC;
+        }
+
+        body.dark-mode .markdown-section tr:nth-child(2n) {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        body.dark-mode .markdown-section td,
+        body.dark-mode .markdown-section th {
+            border-color: var(--dark-border);
+        }
+
+        .markdown-section figure.course-hero {
+            margin: 24px 0 32px;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .markdown-section figure.course-hero img {
+            aspect-ratio: 16 / 9;
+            border: 1px solid var(--light-border);
+            border-radius: 16px;
+            box-sizing: border-box;
+            display: block;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .markdown-section figure.course-hero figcaption {
+            color: #64748B;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 10px;
+            overflow-wrap: anywhere;
+            text-align: center;
+        }
+
+        body.dark-mode .markdown-section figure.course-hero img {
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .markdown-section figure.course-hero figcaption {
+            color: #94A3B8;
+        }
+
+        .markdown-section .mermaid {
+            background: var(--light-surface);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            box-sizing: border-box;
+            overflow-x: auto;
+            padding: 16px;
+            text-align: center;
+        }
+
+        body.dark-mode .markdown-section .mermaid {
+            background: var(--dark-bg);
+            border-color: var(--dark-border);
+        }
+
+        .markdown-section .mermaid svg {
+            height: auto;
+            max-width: 100%;
+        }
+
+        .diagram-legend {
+            align-items: center;
+            color: #475569;
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 12px;
+            gap: 8px 16px;
+            justify-content: center;
+            margin: -8px 0 24px;
+        }
+
+        body.dark-mode .diagram-legend {
+            color: #A9B8CC;
+        }
+
+        .diagram-legend span {
+            align-items: center;
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .diagram-legend span::before {
+            content: "";
+            display: inline-block;
+            width: 28px;
+        }
+
+        .diagram-legend-data::before {
+            border-top: 2px solid var(--diagram-data-stroke);
+        }
+
+        .diagram-legend-control::before {
+            border-top: 2px dashed var(--diagram-control-stroke);
+        }
+
+        .diagram-legend-failure::before {
+            border-top: 2px dotted var(--diagram-failure-stroke);
+        }
+
+        .diagram-legend-approval::before {
+            border-top: 3px dashed var(--diagram-approval-stroke);
+        }
+
+        body.dark-mode .sidebar-toggle,
+        body.dark-mode.close .sidebar-toggle {
+            background-color: transparent;
+        }
+
+        @media screen and (max-width: 768px) {
+            .markdown-section figure.course-hero {
+                margin: 18px 0 24px;
+            }
+
+            .markdown-section .mermaid {
+                max-width: 100%;
+                overflow-x: auto;
+                overscroll-behavior-inline: contain;
+            }
+
+            .markdown-section .mermaid svg {
+                max-width: none;
+                min-width: 680px;
+            }
+
+            .learning-path-switch {
+                margin: 0 0 22px auto;
+                padding-left: 5px;
+                top: 0;
+                width: 100%;
+            }
+
+            .learning-path-label {
+                display: none;
+            }
+
+            .learning-path-options {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                width: 100%;
+            }
+
+            .learning-path-option {
+                overflow: hidden;
+                padding-left: 4px;
+                padding-right: 4px;
+                text-overflow: ellipsis;
+            }
+
+            .lang-switch {
+                right: 10px;
+                top: 10px;
+            }
+
+            .learning-route-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script>
+        function safeStorageRead(key) {
+            try {
+                return localStorage.getItem(key);
+            } catch (_error) {
+                return null;
+            }
+        }
+
+        function safeStorageWrite(key, value) {
+            try {
+                localStorage.setItem(key, value);
+                return true;
+            } catch (_error) {
+                return false;
+            }
+        }
+
+        (function() {
+            const match = window.location.hash.match(/[?&]id=route-(application|fullstack|systems)(?:&|$)/);
+            const stored = safeStorageRead('learning-path-preference');
+            const initialPath = match ? match[1] : stored;
+            document.documentElement.dataset.learningPath = /^(application|fullstack|systems)$/.test(initialPath || '')
+                ? initialPath
+                : 'application';
+            document.documentElement.classList.add('learning-path-pending');
+        }());
+    </script>
+</head>
+
+<body>
+    <div class="lang-switch">
+        <button id="langBtn" onclick="switchLanguage()">English</button>
+    </div>
+    <div id="app"></div>
+
+    <script src="./assets/learning-path.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'strict',
+            theme: 'base',
+            themeVariables: {
+                background: 'transparent',
+                primaryColor: '#0B1220',
+                primaryBorderColor: '#2563EB',
+                primaryTextColor: '#E2E8F0',
+                lineColor: '#2563EB',
+                secondaryColor: '#0F172A',
+                secondaryBorderColor: '#0E7490',
+                secondaryTextColor: '#E2E8F0',
+                tertiaryColor: '#111827',
+                tertiaryBorderColor: '#64748B',
+                tertiaryTextColor: '#E2E8F0',
+                clusterBkg: '#0F172A',
+                clusterBorder: '#2563EB',
+                edgeLabelBackground: '#0B1220'
+            }
+        });
+    </script>
+    <script>
+        window.$docsify = {
+            name: 'Go Agentic',
+            loadSidebar: true,
+            auto2top: true,
+            subMaxLevel: 3,
+            relativePath: false,
+            alias: {
+                '/en/README.md': '/README_EN.md',
+                '/en/README_EN.md': '/README_EN.md',
+                '/en/Preface.md': '/Preface.md',
+                '/en/_sidebar.md': '/_sidebar_en.md',
+                '/en/.*/_sidebar.md': '/_sidebar_en.md',
+                '/en/(.*)': '/$1',
+                '/_sidebar.md': '/_sidebar.md',
+                '/.*/_sidebar.md': '/_sidebar.md'
+            },
+            pagination: {
+                previousText: '上一章节',
+                nextText: '下一章节'
+            },
+            count: {
+                countable: true,
+                fontsize: '0.9em',
+                color: 'rgb(90,90,90)',
+                language: 'chinese'
+            },
+            markdown: {
+                renderer: {
+                    code: function(code, language) {
+                        if (language === 'mermaid') {
+                            return '<div class="mermaid">' + code + '</div>';
+                        }
+                        return this.origin.code.apply(this, arguments);
+                    }
+                }
+            },
+            fallbackLanguages: ['en'],
+            nameLink: {
+                '/en/': '#/en/',
+                '/': '#/'
+            },
+            plugins: [
+                function(hook) {
+                    hook.doneEach(function() {
+                        const diagrams = document.querySelectorAll('.mermaid');
+                        if (diagrams.length) {
+                            Promise.resolve(mermaid.run({ nodes: diagrams })).then(function() {
+                                diagrams.forEach(function(diagram) {
+                                    const svg = diagram.querySelector('svg');
+                                    if (!svg) return;
+                                    const title = svg.querySelector('title');
+                                    const description = svg.querySelector('desc');
+                                    if (title && title.id) {
+                                        svg.setAttribute('aria-labelledby', title.id);
+                                    }
+                                    if (description && description.id) {
+                                        svg.setAttribute('aria-describedby', description.id);
+                                    }
+                                });
+                            });
+                        }
+
+                        const sidebar = document.querySelector('.sidebar-nav');
+                        if (sidebar && !document.querySelector('.sidebar-toggle-btn')) {
+                            const button = document.createElement('button');
+                            button.className = 'sidebar-toggle-btn';
+                            const setTheme = function(isDark) {
+                                document.body.classList.toggle('dark-mode', isDark);
+                                safeStorageWrite('theme-mode', isDark ? 'dark' : 'light');
+                                button.textContent = isDark ? '🌙 Switch to Light' : '☀️ Switch to Dark';
+                            };
+
+                            setTheme(safeStorageRead('theme-mode') === 'dark');
+                            button.addEventListener('click', function() {
+                                setTheme(!document.body.classList.contains('dark-mode'));
+                            });
+                            sidebar.insertBefore(button, sidebar.firstChild);
+                        }
+
+                        window.requestAnimationFrame(function() {
+                            applyLearningPathView();
+                            window.requestAnimationFrame(applyLearningPathView);
+                        });
+                    });
+                },
+                function(hook, vm) {
+                    hook.beforeEach(function(content) {
+                        document.documentElement.classList.add('learning-path-pending');
+                        const isEnglish = vm.route.path.includes('/en/') ||
+                            safeStorageRead('preferredLanguage') === 'en';
+                        window.$docsify.pagination.previousText = isEnglish ? 'Previous' : '上一章节';
+                        window.$docsify.pagination.nextText = isEnglish ? 'Next' : '下一章节';
+                        return content;
+                    });
+                }
+            ]
+        };
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-bash.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination@2.10.1/dist/docsify-pagination.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@3.0.2/dist/docsify-copy-code.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0/lib/plugins/zoom-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.18.7/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.18.7/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@3.0.8/marked.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-katex@2.0.2/dist/docsify-katex.js"></script>
+    <script src="//unpkg.com/docsify-count@1.1.0/dist/countable.js"></script>
+
+    <script>
+        const chapterMapping = {
+            zh2en: {
+                'README.md': 'README_EN.md',
+                '前言.md': 'Preface.md',
+                '来源与致谢.md': 'Sources-and-Acknowledgements.md',
+                '第一章 初识智能体.md': 'Chapter1-Introduction-to-Agents.md',
+                '第二章 智能体发展史.md': 'Chapter2-History-of-Agents.md',
+                '第三章 大语言模型基础.md': 'Chapter3-Fundamentals-of-Large-Language-Models.md',
+                '第四章 智能体经典范式构建.md': 'Chapter4-Building-Classic-Agent-Paradigms.md',
+                '第五章 基于低代码平台的智能体搭建.md': 'Chapter5-Building-Agents-with-Low-Code-Platforms.md',
+                '第六章 框架开发实践.md': 'Chapter6-Framework-Development-Practice.md',
+                '第七章 构建你的Agent框架.md': 'Chapter7-Building-Your-Agent-Framework.md',
+                '第八章 记忆与检索.md': 'Chapter8-Memory-and-Retrieval.md',
+                '第九章 上下文工程.md': 'Chapter9-Context-Engineering.md',
+                '第十章 智能体通信协议.md': 'Chapter10-Agent-Communication-Protocols.md',
+                '第十一章 Agentic-RL.md': 'Chapter11-Agentic-RL.md',
+                '第十二章 智能体性能评估.md': 'Chapter12-Agent-Performance-Evaluation.md',
+                '第十三章 智能旅行助手.md': 'Chapter13-Intelligent-Travel-Assistant.md',
+                '第十四章 自动化深度研究智能体.md': 'Chapter14-Automated-Deep-Research-Agent.md',
+                '第十五章 构建赛博小镇.md': 'Chapter15-Building-Cyber-Town.md',
+                '第十六章 期中项目验收与复盘.md': 'Chapter16-Midterm-Review.md',
+                '第十六章 毕业设计.md': 'Chapter16-Graduation-Project.md',
+                '第十七章 Transformer数学基础.md': 'Chapter17-Transformer-Mathematics.md',
+                '第十八章 预训练优化与模型压缩.md': 'Chapter18-Pretraining-Optimization-and-Compression.md',
+                '第十九章 对齐与强化学习.md': 'Chapter19-Alignment-and-Reinforcement-Learning.md',
+                '第二十章 GPU系统与高速互联.md': 'Chapter20-GPU-Systems-and-Interconnects.md',
+                '第二十一章 高性能LLM推理.md': 'Chapter21-High-Performance-LLM-Inference.md',
+                '第二十二章 分布式训练与RLHF基础设施.md': 'Chapter22-Distributed-Training-and-RLHF-Infrastructure.md',
+                '第二十三章 Agentic UI与人在回路.md': 'Chapter23-Agentic-UI-and-Human-in-the-Loop.md',
+                '第二十四章 生产Runtime与平台工程.md': 'Chapter24-Production-Runtime-and-Platform-Engineering.md',
+                '第二十五章 毕业设计.md': 'Chapter25-Graduation-Project.md',
+                '附录A 自测题库.md': 'Appendix-A-Question-Bank.md',
+                '附录B 公式与系统速查.md': 'Appendix-B-Formula-and-Systems-Cheat-Sheet.md',
+                '附录C 实验与排错索引.md': 'Appendix-C-Labs-and-Troubleshooting.md'
+            },
+            en2zh: {
+                'README_EN.md': 'README.md',
+                'Preface.md': '前言.md',
+                'Sources-and-Acknowledgements.md': '来源与致谢.md',
+                'Chapter1-Introduction-to-Agents.md': '第一章 初识智能体.md',
+                'Chapter2-History-of-Agents.md': '第二章 智能体发展史.md',
+                'Chapter3-Fundamentals-of-Large-Language-Models.md': '第三章 大语言模型基础.md',
+                'Chapter4-Building-Classic-Agent-Paradigms.md': '第四章 智能体经典范式构建.md',
+                'Chapter5-Building-Agents-with-Low-Code-Platforms.md': '第五章 基于低代码平台的智能体搭建.md',
+                'Chapter6-Framework-Development-Practice.md': '第六章 框架开发实践.md',
+                'Chapter7-Building-Your-Agent-Framework.md': '第七章 构建你的Agent框架.md',
+                'Chapter8-Memory-and-Retrieval.md': '第八章 记忆与检索.md',
+                'Chapter9-Context-Engineering.md': '第九章 上下文工程.md',
+                'Chapter10-Agent-Communication-Protocols.md': '第十章 智能体通信协议.md',
+                'Chapter11-Agentic-RL.md': '第十一章 Agentic-RL.md',
+                'Chapter12-Agent-Performance-Evaluation.md': '第十二章 智能体性能评估.md',
+                'Chapter13-Intelligent-Travel-Assistant.md': '第十三章 智能旅行助手.md',
+                'Chapter14-Automated-Deep-Research-Agent.md': '第十四章 自动化深度研究智能体.md',
+                'Chapter15-Building-Cyber-Town.md': '第十五章 构建赛博小镇.md',
+                'Chapter16-Midterm-Review.md': '第十六章 期中项目验收与复盘.md',
+                'Chapter16-Graduation-Project.md': '第十六章 毕业设计.md',
+                'Chapter17-Transformer-Mathematics.md': '第十七章 Transformer数学基础.md',
+                'Chapter18-Pretraining-Optimization-and-Compression.md': '第十八章 预训练优化与模型压缩.md',
+                'Chapter19-Alignment-and-Reinforcement-Learning.md': '第十九章 对齐与强化学习.md',
+                'Chapter20-GPU-Systems-and-Interconnects.md': '第二十章 GPU系统与高速互联.md',
+                'Chapter21-High-Performance-LLM-Inference.md': '第二十一章 高性能LLM推理.md',
+                'Chapter22-Distributed-Training-and-RLHF-Infrastructure.md': '第二十二章 分布式训练与RLHF基础设施.md',
+                'Chapter23-Agentic-UI-and-Human-in-the-Loop.md': '第二十三章 Agentic UI与人在回路.md',
+                'Chapter24-Production-Runtime-and-Platform-Engineering.md': '第二十四章 生产Runtime与平台工程.md',
+                'Chapter25-Graduation-Project.md': '第二十五章 毕业设计.md',
+                'Appendix-A-Question-Bank.md': '附录A 自测题库.md',
+                'Appendix-B-Formula-and-Systems-Cheat-Sheet.md': '附录B 公式与系统速查.md',
+                'Appendix-C-Labs-and-Troubleshooting.md': '附录C 实验与排错索引.md'
+            }
+        };
+
+        const learningPaths = {
+            application: {
+                index: 0,
+                zhLabel: '应用工程',
+                enLabel: 'Apps'
+            },
+            fullstack: {
+                index: 1,
+                zhLabel: '全栈路线',
+                enLabel: 'Full stack'
+            },
+            systems: {
+                index: 2,
+                zhLabel: '模型系统',
+                enLabel: 'Systems'
+            }
+        };
+
+        function getActiveLearningPath() {
+            const stored = safeStorageRead('learning-path-preference');
+            const activePath = GoAgenticLearningPath.pathFromHash(window.location.hash, stored);
+            safeStorageWrite('learning-path-preference', activePath);
+            document.documentElement.dataset.learningPath = activePath;
+            return activePath;
+        }
+
+        function ensureLearningPathSwitch() {
+            const section = document.querySelector('.markdown-section');
+            if (!section) return null;
+
+            let switcher = document.getElementById('learningPathSwitch');
+            if (switcher && switcher.parentElement === section) return switcher;
+
+            switcher = document.createElement('nav');
+            switcher.className = 'learning-path-switch';
+            switcher.id = 'learningPathSwitch';
+            switcher.innerHTML = [
+                '<span class="learning-path-label" id="learningPathLabel"></span>',
+                '<div class="learning-path-options" id="learningPathOptions" role="group">',
+                '<span class="learning-path-indicator" aria-hidden="true"></span>',
+                '<button class="learning-path-option" type="button" data-path="application" aria-pressed="true"></button>',
+                '<button class="learning-path-option" type="button" data-path="fullstack" aria-pressed="false"></button>',
+                '<button class="learning-path-option" type="button" data-path="systems" aria-pressed="false"></button>',
+                '</div>'
+            ].join('');
+            switcher.addEventListener('click', function(event) {
+                const option = event.target.closest('[data-path]');
+                if (!option) return;
+                const selectedPath = option.dataset.path;
+                safeStorageWrite('learning-path-preference', selectedPath);
+
+                const page = getCurrentPageInfo();
+                if (!page.path || page.filename === 'README.md' || page.filename === 'README_EN.md') {
+                    const route = page.isEnglish
+                        ? '#/en/README_EN.md?id=route-' + selectedPath
+                        : '#/./README?id=route-' + selectedPath;
+                    history.replaceState(null, '', window.location.pathname + window.location.search + route);
+                }
+                applyLearningPathView();
+            });
+            section.insertBefore(switcher, section.firstChild);
+            return switcher;
+        }
+
+        function updateLearningPathSwitch(activePath = getActiveLearningPath()) {
+            const page = getCurrentPageInfo();
+            const isEnglish = page.isEnglish || safeStorageRead('preferredLanguage') === 'en';
+            const switcher = ensureLearningPathSwitch();
+            if (!switcher) return;
+            const options = document.getElementById('learningPathOptions');
+            const label = document.getElementById('learningPathLabel');
+            options.style.setProperty('--path-index', learningPaths[activePath].index);
+            label.textContent = isEnglish ? 'Learning path' : '学习路径';
+            switcher.setAttribute('aria-label', label.textContent);
+            options.setAttribute('aria-label', label.textContent);
+
+            options.querySelectorAll('[data-path]').forEach(function(option) {
+                const path = option.dataset.path;
+                option.textContent = isEnglish ? learningPaths[path].enLabel : learningPaths[path].zhLabel;
+                option.setAttribute('aria-pressed', path === activePath ? 'true' : 'false');
+            });
+        }
+
+        function filterSidebar(activePath) {
+            const sidebar = document.querySelector('.sidebar-nav');
+            if (!sidebar) return;
+
+            const chapterLinks = Array.from(sidebar.querySelectorAll('a[href]')).filter(function(link) {
+                return GoAgenticLearningPath.chapterNumberFromHref(link.getAttribute('href')) !== null;
+            });
+            sidebar.querySelectorAll('li').forEach(function(item) {
+                item.hidden = false;
+            });
+            chapterLinks.forEach(function(link) {
+                const chapter = GoAgenticLearningPath.chapterNumberFromHref(link.getAttribute('href'));
+                link.closest('li').hidden = !GoAgenticLearningPath.isChapterAllowed(activePath, chapter);
+            });
+
+            sidebar.querySelectorAll('li').forEach(function(item) {
+                const directHeading = item.querySelector(':scope > strong, :scope > p > strong');
+                const descendants = Array.from(item.querySelectorAll('a[href]')).filter(function(link) {
+                    return GoAgenticLearningPath.chapterNumberFromHref(link.getAttribute('href')) !== null;
+                });
+                if (directHeading && descendants.length) {
+                    item.hidden = descendants.every(function(link) {
+                        const chapter = GoAgenticLearningPath.chapterNumberFromHref(link.getAttribute('href'));
+                        return !GoAgenticLearningPath.isChapterAllowed(activePath, chapter);
+                    });
+                }
+            });
+        }
+
+        function filterHomepage(activePath) {
+            const section = document.querySelector('.markdown-section');
+            if (!section) return;
+
+            const routeGrid = section.querySelector('.learning-route-grid');
+            if (routeGrid) {
+                routeGrid.classList.add('route-filtered');
+                routeGrid.querySelectorAll('.learning-route-card').forEach(function(card) {
+                    card.hidden = card.id !== 'route-' + activePath;
+                });
+            }
+
+            section.querySelectorAll(':scope > h3').forEach(function(heading) {
+                const nodes = [heading];
+                let cursor = heading.nextElementSibling;
+                while (cursor && cursor.tagName !== 'H2' && cursor.tagName !== 'H3') {
+                    nodes.push(cursor);
+                    cursor = cursor.nextElementSibling;
+                }
+                const chapters = nodes.flatMap(function(node) {
+                    return Array.from(node.querySelectorAll('a[href]')).map(function(link) {
+                        return GoAgenticLearningPath.chapterNumberFromHref(link.getAttribute('href'));
+                    }).filter(function(chapter) {
+                        return chapter !== null;
+                    });
+                });
+                if (chapters.length) {
+                    const visible = chapters.some(function(chapter) {
+                        return GoAgenticLearningPath.isChapterAllowed(activePath, chapter);
+                    });
+                    nodes.forEach(function(node) {
+                        node.hidden = !visible;
+                    });
+                    sidebarLinksForHeading(heading).forEach(function(link) {
+                        link.closest('li').hidden = !visible;
+                    });
+                }
+            });
+        }
+
+        function sidebarLinksForHeading(heading) {
+            const sidebar = document.querySelector('.sidebar-nav');
+            if (!sidebar) return [];
+            const headingText = heading.textContent.trim();
+            return Array.from(sidebar.querySelectorAll('a[href]')).filter(function(link) {
+                return link.textContent.trim() === headingText && link.getAttribute('href').includes('?id=');
+            });
+        }
+
+        function updatePathNotice(activePath) {
+            const section = document.querySelector('.markdown-section');
+            const switcher = document.getElementById('learningPathSwitch');
+            if (!section || !switcher) return;
+
+            const existing = document.getElementById('learningPathNotice');
+            if (existing) existing.remove();
+            const currentChapter = GoAgenticLearningPath.chapterNumberFromHref(window.location.hash);
+            if (currentChapter === null || GoAgenticLearningPath.isChapterAllowed(activePath, currentChapter)) return;
+
+            const isEnglish = getCurrentPageInfo().isEnglish;
+            const notice = document.createElement('div');
+            notice.className = 'learning-path-notice';
+            notice.id = 'learningPathNotice';
+            notice.textContent = isEnglish
+                ? 'This chapter is outside the selected learning path. It remains available by direct link; choose Full stack to restore it to navigation.'
+                : '本章不在当前学习路径中。你仍可通过直达链接阅读；选择“全栈路线”即可在导航中恢复本章。';
+            switcher.insertAdjacentElement('afterend', notice);
+        }
+
+        function updatePagination(activePath) {
+            const currentChapter = GoAgenticLearningPath.chapterNumberFromHref(window.location.hash);
+            const sidebar = document.querySelector('.sidebar-nav');
+            if (currentChapter === null || !sidebar) return;
+
+            const configure = function(selector, direction) {
+                const targetChapter = GoAgenticLearningPath.adjacentChapter(activePath, currentChapter, direction);
+                let item = document.querySelector(selector);
+                if (targetChapter === null) {
+                    if (item) item.hidden = true;
+                    return;
+                }
+                const target = Array.from(sidebar.querySelectorAll('a[href]')).find(function(link) {
+                    return GoAgenticLearningPath.chapterNumberFromHref(link.getAttribute('href')) === targetChapter;
+                });
+                if (!target) {
+                    if (item) item.hidden = true;
+                    return;
+                }
+
+                if (!item) {
+                    const container = document.querySelector('.docsify-pagination-container');
+                    if (!container) return;
+                    const isPrevious = direction < 0;
+                    const isEnglish = getCurrentPageInfo().isEnglish;
+                    item = document.createElement('div');
+                    item.className = 'pagination-item pagination-item--' + (isPrevious ? 'previous' : 'next');
+                    item.innerHTML = [
+                        '<a>',
+                        '<div class="pagination-item-label"><span>',
+                        isEnglish ? (isPrevious ? 'Previous' : 'Next') : (isPrevious ? '上一章节' : '下一章节'),
+                        '</span></div>',
+                        '<div class="pagination-item-title"></div>',
+                        '</a>'
+                    ].join('');
+                    if (isPrevious) {
+                        container.insertBefore(item, container.firstChild);
+                    } else {
+                        container.appendChild(item);
+                    }
+                }
+
+                const paginationLink = item.querySelector('a');
+                item.hidden = false;
+                paginationLink.setAttribute('href', target.getAttribute('href'));
+                const title = item.querySelector('.pagination-item-title');
+                if (title) title.textContent = target.textContent.trim();
+            };
+
+            configure('.pagination-item--previous', -1);
+            configure('.pagination-item--next', 1);
+        }
+
+        function applyLearningPathView() {
+            try {
+                const activePath = getActiveLearningPath();
+                updateLearningPathSwitch(activePath);
+                filterSidebar(activePath);
+                filterHomepage(activePath);
+                updatePathNotice(activePath);
+                updatePagination(activePath);
+            } finally {
+                document.documentElement.classList.remove('learning-path-pending');
+            }
+        }
+
+        function getCurrentPageInfo(hash = window.location.hash) {
+            const rawRoute = hash.replace(/^#\/?/, '').split(/[?#]/, 1)[0];
+            const isEnglish = rawRoute.startsWith('en/');
+            const rawPath = isEnglish ? rawRoute.slice(3) : rawRoute;
+            let path = rawPath;
+
+            try {
+                path = decodeURIComponent(rawPath);
+            } catch (_error) {
+                // Keep a malformed route routable enough to reach the normal fallback.
+            }
+
+            const parts = path.split('/');
+            const routeFilename = parts[parts.length - 1];
+            const filename = routeFilename && !routeFilename.endsWith('.md')
+                ? routeFilename + '.md'
+                : routeFilename;
+            return { isEnglish, path, parts, filename };
+        }
+
+        function switchLanguage() {
+            const page = getCurrentPageInfo();
+
+            if (page.isEnglish) {
+                safeStorageWrite('preferredLanguage', 'zh');
+                if (chapterMapping.en2zh[page.filename]) {
+                    page.parts[page.parts.length - 1] = chapterMapping.en2zh[page.filename];
+                    window.location.hash = '#/' + page.parts.join('/');
+                } else {
+                    window.location.hash = '#/';
+                }
+            } else {
+                safeStorageWrite('preferredLanguage', 'en');
+                if (!page.path || page.path === '/') {
+                    window.location.hash = '#/en/README_EN.md';
+                } else if (chapterMapping.zh2en[page.filename]) {
+                    page.parts[page.parts.length - 1] = chapterMapping.zh2en[page.filename];
+                    window.location.hash = '#/en/' + page.parts.join('/');
+                } else {
+                    window.location.hash = '#/en/README_EN.md';
+                }
+            }
+            window.location.reload();
+        }
+
+        function updateLanguageButton() {
+            const button = document.getElementById('langBtn');
+            if (button) {
+                button.textContent = getCurrentPageInfo().isEnglish ? '中文' : 'English';
+            }
+            window.requestAnimationFrame(applyLearningPathView);
+        }
+
+        function applyPreferredLanguageRoute() {
+            const preferredLanguage = safeStorageRead('preferredLanguage');
+            const page = getCurrentPageInfo();
+
+            if (preferredLanguage === 'en' && !page.isEnglish) {
+                if (!page.path || page.path === '/') {
+                    window.location.hash = '#/en/README_EN.md';
+                } else if (chapterMapping.zh2en[page.filename]) {
+                    page.parts[page.parts.length - 1] = chapterMapping.zh2en[page.filename];
+                    window.location.hash = '#/en/' + page.parts.join('/');
+                }
+            } else if (preferredLanguage === 'zh' && page.isEnglish) {
+                if (chapterMapping.en2zh[page.filename]) {
+                    page.parts[page.parts.length - 1] = chapterMapping.en2zh[page.filename];
+                    window.location.hash = '#/' + page.parts.join('/');
+                }
+            }
+            updateLanguageButton();
+        }
+
+        window.addEventListener('hashchange', updateLanguageButton);
+        window.addEventListener('load', function() {
+            applyPreferredLanguageRoute();
+            window.requestAnimationFrame(applyLearningPathView);
+        });
+    </script>
+</body>
+
+</html>

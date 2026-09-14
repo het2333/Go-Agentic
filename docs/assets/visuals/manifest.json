@@ -1,0 +1,470 @@
+[
+  {
+    "id": "home",
+    "prompt": "Use case: scientific-educational. Asset type: course home hero. Primary request: a navigable course map visualized as one dominant central crystalline agent core connected to five distinct learning territories represented only by an observation lens, tool forge, memory crystal archive, coordinated node cluster, and compute landscape. Scene/backdrop: an opaque full-frame dark #0B1220 ground with deep-ocean blue #2563EB terrain, clean matte texture, no huge gradients. Style/medium: text-free editorial technical illustration, refined geometric 3D cutaway with subtle paper-grain finish. Composition/framing: wide 16:9 panoramic map, central core as the single clear focal point, five clearly separated territories, balanced negative space, original composition. Data paths and all ordinary illumination: electric cyan #06B6D4 and deep-ocean blue #2563EB only. Risk/approval cue: restrained amber #F59E0B at exactly one compact guarded approval connection only, a single small contiguous ring where the central core's path meets the tool-forge territory. The forge itself, including its heating point, chamber, hammer, reflections, and light spill, must be cyan/blue or neutral dark, never warm-colored. The forge, territories, paths, particles, reflections, and all other elements must use only deep-ocean blue #2563EB, electric cyan #06B6D4, dark #0B1220, and cool neutral tones. Explicitly forbid amber, gold, orange, or yellow anywhere else; no second warm object, no warm glow, no warm reflection, no warm highlight, and no decorative warm accent. Constraints: high contrast, conceptually clear, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Use only smooth blank geometric objects; every crystal, panel, vessel, and architectural surface must be unlabeled and unmarked, with absolutely no text-like strokes, writing, tick marks, symbols, signage, or interface markings anywhere.",
+    "alt_text": {
+      "en": "A luminous agent core links five distinct learning territories across a technical course map.",
+      "zh": "发光的智能体核心连接五个不同的学习领域，构成技术课程地图。"
+    },
+    "caption": {
+      "en": "The course map connects foundations, tools, memory, coordination, and systems engineering.",
+      "zh": "课程地图串联基础原理、工具、记忆、协作与系统工程。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 136856,
+    "sha256": "5dc6bf9d2788c3b1f10bb9a604c892b037a8759fec777c703d6762c5e8f9f817"
+  },
+  {
+    "id": "chapter-01",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: the boundary between an autonomous agent and its environment, shown as a single faceted decision core inside a transparent protective membrane sensing and acting on an external field of objects. Scene/backdrop: deep-ocean blue #2563EB with dark #0B1220, clean matte texture, no huge gradients. Style/medium: text-free editorial technical illustration, precise isometric cutaway. Composition/framing: wide 16:9, membrane and core as the focal point, cyan sensory paths entering and action paths leaving, original composition. Data paths: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B at one guarded boundary portal. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "A decision core exchanges signals and actions across a transparent agent-environment boundary.",
+      "zh": "决策核心通过透明的智能体—环境边界接收信号并输出行动。"
+    },
+    "caption": {
+      "en": "An agent becomes meaningful through a controlled boundary with its environment.",
+      "zh": "智能体通过与环境之间可控的边界获得实际意义。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 125070,
+    "sha256": "01fbfae2e27ccf0698a37a221ccc1d1351afc32d14a0d82ac25305ec6333cd2e"
+  },
+  {
+    "id": "chapter-02",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: runtime evolution from a simple reactive mechanism through layered planning machinery to a modern adaptive agent, represented by three increasingly capable mechanical organisms emerging along a curved temporal track. Scene/backdrop: deep-ocean blue #2563EB and dark #0B1220, clean matte texture, no huge gradients. Style/medium: text-free editorial technical illustration, sculptural museum-diorama aesthetic. Composition/framing: wide 16:9, left-to-right evolution with three unmistakably different silhouettes and the adaptive form as focal point, original composition. Connections: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on a small historical failure branch. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "Three mechanical forms trace the evolution from reactive automation to adaptive agent runtime.",
+      "zh": "三种机械形态展现从反应式自动化到自适应智能体运行时的演进。"
+    },
+    "caption": {
+      "en": "Agent runtimes evolved by adding planning, tools, memory, and adaptation.",
+      "zh": "智能体运行时通过加入规划、工具、记忆与适应能力不断演进。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 116738,
+    "sha256": "967a046327ae1ad409b81324c75b4e9b472f58fd37720c82bcc55f72fad70bf8"
+  },
+  {
+    "id": "chapter-03",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: a token-to-action pipeline where abstract input particles pass through attention prisms, a reasoning chamber, and a tool-selection gate before becoming one concrete robotic action. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB structures, minimal shadow, no huge gradients. Style/medium: text-free editorial technical illustration, clean exploded technical model. Composition/framing: wide 16:9 diagonal pipeline, transformation chamber as focal point, strong stage separation without labels, original composition. Data paths: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B at the final action gate. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "Abstract token particles flow through attention and reasoning machinery into a concrete tool action.",
+      "zh": "抽象词元粒子经过注意力与推理装置，转化为具体的工具行动。"
+    },
+    "caption": {
+      "en": "Language-model representations become useful when the runtime converts them into controlled actions.",
+      "zh": "当运行时把语言模型表征转化为受控行动时，它们才产生实际作用。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 81102,
+    "sha256": "2219a84e0d6e7ea735bbb235b557a5c3ba95e0bffb7cfd22b7fa9846ac152fa3"
+  },
+  {
+    "id": "chapter-04",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: an Observe-Decide-Act-Verify loop represented by four distinct instrument stations orbiting a central task object: lens, branching decision crystal, actuator arm, and verification shield. Scene/backdrop: dark #0B1220 with deep-ocean blue #2563EB planes, subtle matte grain, no huge gradients. Style/medium: text-free editorial technical illustration, top-down kinetic systems diagram rendered as dimensional objects. Composition/framing: wide 16:9 circular loop, central task object as focal point, clear clockwise cyan flow without arrows containing symbols, original composition. Data paths: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on the verification checkpoint. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: make every shield, gate, panel, station, and surface completely blank and unmarked. No glyphs, triangles used as signage, icons, interface markings, text-like strokes, tick marks, or tiny inscriptions anywhere.",
+    "alt_text": {
+      "en": "Four instrument stations form a closed observation, decision, action, and verification loop.",
+      "zh": "四个仪器站组成观察、决策、行动与验证的闭环。"
+    },
+    "caption": {
+      "en": "Reliable agents repeatedly observe, decide, act, and verify.",
+      "zh": "可靠的智能体持续执行观察、决策、行动与验证。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 80110,
+    "sha256": "289802922b7668540cb9a542b81c44751a135852e2671f6b96b55aa15ffa2151"
+  },
+  {
+    "id": "chapter-05",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: a low-code agent workbench combining a tool rack, a controllable environment sandbox, and a retrieval well around one modular agent core. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB architectural modules, no huge gradients. Style/medium: text-free editorial technical illustration, friendly axonometric construction-kit aesthetic. Composition/framing: wide 16:9 triangular arrangement, modular agent core at the center, three peripherals visually distinct, original composition. Data paths: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on the environment access latch. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: the central core must be a faceted neutral machine with no face-like screen. Represent retrieval with blank faceted crystals only; remove all cards, documents, folders, screens, media icons, pictograms, lines, labels, and signage. Every surface must be smooth and unmarked.",
+    "alt_text": {
+      "en": "A modular agent core connects to a tool rack, sandboxed environment, and retrieval well.",
+      "zh": "模块化智能体核心连接工具架、沙箱环境与检索井。"
+    },
+    "caption": {
+      "en": "Practical agent builders combine tools, environments, and retrieval around a controlled core.",
+      "zh": "实用的智能体搭建平台围绕受控核心组合工具、环境与检索。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 67246,
+    "sha256": "13c50999433f8cc7c5fc2c1c9daa7b5ab9245a14bab1fd31fd6dfd45cded1834"
+  },
+  {
+    "id": "chapter-06",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: framework lifecycle selection visualized as several specialized runtime vessels approaching a branching harbor, each suited to a different channel of deployment, orchestration, or observability. Scene/backdrop: deep-ocean blue #2563EB sea-plane with dark #0B1220 harbor geometry, no huge gradients. Style/medium: text-free editorial technical illustration, elegant map-like relief model. Composition/framing: wide 16:9 fan-shaped branching channels, one balanced vessel at the decision fork as focal point, clearly varied vessel forms, original composition. Data paths: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on one constrained channel buoy. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "Specialized runtime vessels approach branching channels for different framework lifecycles.",
+      "zh": "不同的运行时载体驶向适配不同框架生命周期的分叉航道。"
+    },
+    "caption": {
+      "en": "Framework choice depends on the lifecycle and controls a system must support.",
+      "zh": "框架选择取决于系统必须支持的生命周期与控制能力。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 145298,
+    "sha256": "b595e1634f594b65756f5b99599fafd70fa5042b6c44dd31895be2cb5a3dde13"
+  },
+  {
+    "id": "chapter-07",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: an agent runtime control plane as a layered command citadel coordinating scheduler gears, tool gateways, state stores, and telemetry beacons around a central execution chamber. Scene/backdrop: dark #0B1220 with deep-ocean blue #2563EB structural layers, no huge gradients. Style/medium: text-free editorial technical illustration, detailed isometric architectural cutaway. Composition/framing: wide 16:9, central execution chamber illuminated as the focal point, strong vertical hierarchy, original composition. Data paths: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B at a guarded tool gateway. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: remove every console, screen, banner, plaque, panel marking, tiny inscription, glyph, icon, and signage. Use blank smooth architectural surfaces and unmarked faceted status crystals only.",
+    "alt_text": {
+      "en": "A layered control citadel coordinates scheduling, tools, state, and telemetry around execution.",
+      "zh": "分层控制中枢围绕执行核心协调调度、工具、状态与遥测。"
+    },
+    "caption": {
+      "en": "A custom runtime needs a control plane that governs every execution boundary.",
+      "zh": "自研运行时需要一个治理所有执行边界的控制平面。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 144652,
+    "sha256": "d4fe9df5d01dbda6dc138ba82a91473ad32b9ec4fe321d0e79adf3cd03a45060"
+  },
+  {
+    "id": "chapter-08",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: memory layers shown as a geological cutaway: fleeting surface ripples, an organized working-memory terrace, and a deep long-term archive of glowing crystalline records feeding one active agent core. Scene/backdrop: deep-ocean blue #2563EB strata over dark #0B1220 depth, no huge gradients. Style/medium: text-free editorial technical illustration, scientific terrain cross-section with tactile materials. Composition/framing: wide 16:9 layered depth, active agent core at upper center, clear distinction among three memory timescales, original composition. Retrieval paths: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on one stale-memory inclusion. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "A geological cutaway separates fleeting, working, and long-term memory feeding an agent core.",
+      "zh": "地质剖面般的结构区分瞬时、工作与长期记忆，并向智能体核心供给信息。"
+    },
+    "caption": {
+      "en": "Useful memory systems separate timescales and retrieve only what the task needs.",
+      "zh": "有效的记忆系统区分时间尺度，并只检索任务所需的信息。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 201364,
+    "sha256": "99d052b4ba8684177a237e2e99fc0e47c69980e249d60bc8791c67f72f99583e"
+  },
+  {
+    "id": "chapter-09",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: context flow through a narrow attention channel, with diverse evidence fragments entering a braided stream, passing a selective aperture, and assembling into a coherent task model. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB channel walls, no huge gradients. Style/medium: text-free editorial technical illustration, fluid-mechanics-inspired abstract technical art. Composition/framing: wide 16:9 sweeping S-curve, selective aperture as focal point, clean before-and-after organization, original composition. Flow: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on fragments rejected at the aperture. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: all incoming evidence fragments must be blank faceted geometric solids with varied materials. Remove every paper, parchment, leaf, wood strip, grid, writing-like stroke, arrow, icon, symbol, label, and pictogram. Rejected fragments may peel away as plain amber crystals without arrow shapes.",
+    "alt_text": {
+      "en": "Evidence fragments form a braided stream that passes a selective context aperture.",
+      "zh": "证据碎片汇成编织信息流，并通过选择性的上下文孔径。"
+    },
+    "caption": {
+      "en": "Context engineering selects and orders evidence before it reaches the model.",
+      "zh": "上下文工程在信息进入模型前完成证据的选择与排序。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 91696,
+    "sha256": "6191d1fd12c9f0a272677a9bcb15e36e28415320f4fff3e19af26ff1820c8611"
+  },
+  {
+    "id": "chapter-10",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: a protocol bridge joining an agent runtime on one cliff to heterogeneous external tools on another, with standardized luminous packets crossing modular relay spans. Scene/backdrop: dark #0B1220 canyon with deep-ocean blue #2563EB bridge structures, no huge gradients. Style/medium: text-free editorial technical illustration, cinematic engineering cross-section. Composition/framing: wide 16:9, bridge coupling at center as focal point, asymmetric cliffs and multiple tool silhouettes, original composition. Packets and links: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on one authorization checkpoint. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: represent the runtime as a blank faceted core, never a humanoid or character. Represent external tools as varied unlabeled sculptural machines with smooth surfaces. Remove all screens, documents, shield symbols, image pictograms, cloud shapes, rack indicators, glyphs, lines resembling writing, labels, and signage.",
+    "alt_text": {
+      "en": "A modular bridge carries standardized packets between an agent runtime and varied external tools.",
+      "zh": "模块化桥梁在智能体运行时与多种外部工具之间传递标准化数据包。"
+    },
+    "caption": {
+      "en": "A shared protocol lets runtimes reach many tools through one consistent bridge.",
+      "zh": "统一协议让运行时通过一致的桥梁连接多种工具。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 115852,
+    "sha256": "508709376edab3c598b166eaf44f4429319fb82b9f964cc75a450579f5cab69d"
+  },
+  {
+    "id": "chapter-11",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: policy search represented as a branching maze of possible action paths explored by luminous probes, with weak branches fading and one robust route converging on a target chamber. Scene/backdrop: deep-ocean blue #2563EB maze over dark #0B1220, no huge gradients. Style/medium: text-free editorial technical illustration, top-down relief labyrinth with probabilistic visual rhythm. Composition/framing: wide 16:9, convergent target chamber off-center as focal point, many distinct but uncluttered branches, original composition. Search traces: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on unsafe dead ends. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "Luminous probes explore a branching policy maze and converge on one robust action route.",
+      "zh": "发光探针探索分叉的策略迷宫，并收敛到一条稳健行动路径。"
+    },
+    "caption": {
+      "en": "Agent reasoning can be understood as searching and pruning possible policies.",
+      "zh": "智能体推理可以理解为对候选策略进行搜索与剪枝。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 132354,
+    "sha256": "ccfcee7eb42bbe6618aa09cc613f55f693e583c211103cda38281e22fa1f0d07"
+  },
+  {
+    "id": "chapter-12",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: an evaluation and safety gate testing an agent-built artifact with calibrated scales, stress beams, evidence lenses, and a final shielded release aperture. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB test apparatus, no huge gradients. Style/medium: text-free editorial technical illustration, precision laboratory still life with clean geometric objects. Composition/framing: wide 16:9, artifact suspended inside the evaluation rig as focal point, clear sequence of checks without labels, original composition. Measurement paths: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B concentrated at the release gate. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "A technical artifact passes through evidence, stress, and safety checks before a guarded release gate.",
+      "zh": "技术产物依次经过证据、压力与安全检查，最终到达受控发布闸门。"
+    },
+    "caption": {
+      "en": "Evaluation and safety gates turn agent outputs into reviewable release candidates.",
+      "zh": "评估与安全闸门把智能体输出转化为可审查的发布候选。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 99420,
+    "sha256": "e5b76b87441a601a077437d85889adf266dd2fb841e0c2a6372450776cf7e932"
+  },
+  {
+    "id": "chapter-13",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: enterprise execution as a secure logistics floor where one orchestration crane routes task capsules through identity gates, service stations, audit sensors, and durable queues. Scene/backdrop: dark #0B1220 warehouse with deep-ocean blue #2563EB machinery, no huge gradients. Style/medium: text-free editorial technical illustration, industrial systems diorama. Composition/framing: wide 16:9, orchestration crane and one task capsule as focal point, deep perspective with orderly lanes, original composition. Operational routes: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B on identity and escalation gates. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: remove all identity silhouettes, person icons, warning triangles, pictograms, arrows, signs, screens, labels, panel markings, and tiny inscriptions. Show identity and risk gates using only shape, material, light color, and physical barriers with blank surfaces.",
+    "alt_text": {
+      "en": "A secure orchestration crane routes task capsules through enterprise services and audit gates.",
+      "zh": "安全编排吊机将任务舱送入企业服务站与审计闸门。"
+    },
+    "caption": {
+      "en": "Enterprise agents require identity, durability, auditability, and controlled service access.",
+      "zh": "企业级智能体需要身份、持久性、可审计性与受控服务访问。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 135378,
+    "sha256": "18aebc228955b81fe469c833a4067bab051efb7eb4abb12959981a6adf946452"
+  },
+  {
+    "id": "chapter-14",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: evidence-led research shown as an autonomous observatory collecting diverse unlabeled source crystals, filtering them through provenance lenses, and assembling a transparent evidence mosaic around a smooth central hypothesis sphere. Scene/backdrop: deep-ocean blue #2563EB observatory with dark #0B1220 depth and an opaque full-frame dark ground, no huge gradients. Style/medium: text-free editorial technical illustration, refined scientific collage with dimensional glass and mineral materials. Composition/framing: wide 16:9 radial research bench, transparent evidence mosaic as the single clear focal point, source diversity visible only by shape and material, original composition. Accepted evidence links and illumination: electric cyan #06B6D4 and deep-ocean blue only. Risk cue only: restrained amber #F59E0B confined to exactly one single uncertain source crystal visibly diverted outside and excluded from the evidence mosaic; amber must appear nowhere else, never as decorative lighting, trim, glow, particles, or broad accent. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Remove all picture panels, image tiles, screens, diagrams, atom-like orbital graphics, molecular networks, arrows, pictograms, glyphs, labels, and marks. Every surface must remain blank and the complete frame must have a solid opaque dark/deep-ocean backdrop with no transparency.",
+    "alt_text": {
+      "en": "A research observatory filters source crystals and assembles them around a hypothesis sphere.",
+      "zh": "研究观测台筛选来源晶体，并围绕假设球体组装透明证据拼图。"
+    },
+    "caption": {
+      "en": "Deep research depends on provenance, evidence selection, and visible synthesis.",
+      "zh": "深度研究依赖来源追踪、证据筛选与可见的综合过程。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 144022,
+    "sha256": "4be2f64930552f3dc1a7f57f5ccc086dcf2209e42a579b4737008b372c40108b"
+  },
+  {
+    "id": "chapter-15",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: multi-agent coordination as a compact cyber town where specialized agent workshops exchange task capsules through a central roundabout while a coordinator tower balances shared resources. Scene/backdrop: light #F7F9FC ground with deep-ocean blue #2563EB buildings, no huge gradients. Style/medium: text-free editorial technical illustration, playful but rigorous isometric urban systems model. Composition/framing: wide 16:9, central coordination roundabout as focal point, varied workshop silhouettes and non-overlapping routes, original composition. Communication paths: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B at one conflict-resolution junction. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: remove every screen, portrait, face, brain graphic, palette, brush, gear display, rooftop pictogram, arrow, icon, symbol, letter-like mark, and interface panel. Differentiate workshops only through their architecture and visible unlabeled machinery; use blank smooth surfaces throughout.",
+    "alt_text": {
+      "en": "Specialized agent workshops exchange tasks through a coordinated cyber-town roundabout.",
+      "zh": "专门化智能体工坊通过赛博小镇的协调环岛交换任务。"
+    },
+    "caption": {
+      "en": "Multi-agent systems divide roles while coordinating shared state and resources.",
+      "zh": "多智能体系统划分角色，同时协调共享状态与资源。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 260996,
+    "sha256": "39aabca41eae366a66cbb10e7a199ce8d09a766c6e7e52558d8434cc88e8a152"
+  },
+  {
+    "id": "chapter-16",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: a midterm review table where an incomplete agent machine is opened into inspectable modules and a human silhouette uses neutral measuring tools to compare evidence, behavior, and architecture. Scene/backdrop: deep-ocean blue #2563EB workshop with dark #0B1220 recesses, no huge gradients. Style/medium: text-free editorial technical illustration, calm engineering review scene with cutaway components. Composition/framing: wide 16:9, opened agent machine centered as focal point, reviewer small and secondary, visible module relationships, original composition. Diagnostic paths: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B on two review flags. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: the agent machine must be an abstract opened spherical mechanism with modular layers, never humanoid and never a robot character. The reviewer uses only blank analog calipers and smooth physical gauges, with no tablet. Remove every screen, diagram, warning icon, brain graphic, glyph, label, tiny writing, interface panel, and signage; use blank surfaces and plain amber review pegs.",
+    "alt_text": {
+      "en": "An opened agent machine is inspected module by module at a midterm review bench.",
+      "zh": "一台打开的智能体机器在期中评审台上接受逐模块检查。"
+    },
+    "caption": {
+      "en": "The midterm review connects architecture, observed behavior, and evidence.",
+      "zh": "期中评审把系统架构、观察到的行为与证据连接起来。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 107270,
+    "sha256": "0d896c1324db2190d9a5e3694c0868475388666a05707cea7cd9d57bb8b1ffcd"
+  },
+  {
+    "id": "chapter-17",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: transformer attention geometry shown as a field of query-like prisms casting selective beams onto a structured lattice of key-value crystals, forming one focused relational pattern. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB lattice, no huge gradients. Style/medium: text-free editorial technical illustration, mathematically precise abstract sculpture without notation. Composition/framing: wide 16:9, intersecting attention beams as focal point, clean spatial geometry and depth, original composition. Attention beams: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on one suppressed distracting relation. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "Selective beams from geometric prisms focus on relationships in a structured crystal lattice.",
+      "zh": "几何棱镜发出的选择性光束聚焦于结构化晶格中的关系。"
+    },
+    "caption": {
+      "en": "Attention builds context by weighting relationships across representations.",
+      "zh": "注意力通过为表征之间的关系分配权重来构建上下文。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 91902,
+    "sha256": "ad5b16fd66b56f68f78fc956c59d883b2a3a96c8d4559d1554f498fef5bc66b5"
+  },
+  {
+    "id": "chapter-18",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: model training and compression as a large rough neural sculpture passing through optimization rollers, pruning combs, and distillation lenses to emerge as a compact precise engine retaining the same luminous internal pattern. Scene/backdrop: dark #0B1220 with deep-ocean blue #2563EB machinery, no huge gradients. Style/medium: text-free editorial technical illustration, industrial process cross-section with polished materials. Composition/framing: wide 16:9 left-to-right transformation, compact engine as focal point, clear reduction in scale without loss of structure, original composition. Learning flow: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on over-compression fragments. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "A large neural sculpture is optimized and compressed into a compact precise engine.",
+      "zh": "大型神经结构经过优化与压缩，形成紧凑而精确的引擎。"
+    },
+    "caption": {
+      "en": "Training and compression trade compute and size against retained capability.",
+      "zh": "训练与压缩在计算、规模和保留能力之间取得平衡。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 183590,
+    "sha256": "43a3696c151417929b6c7931c1328f026486f3acc84efeb33ecd9bd298eb0241"
+  },
+  {
+    "id": "chapter-19",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: preference alignment represented as several subtle candidate behavior paths passing through a compact comparison-and-calibration mechanism and converging into one dominant aligned endpoint: a single stable crystalline action core seated precisely within one protective target cradle. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB structures, no huge gradients. Style/medium: text-free editorial technical illustration, clean precision-instrument sculpture. Composition/framing: wide 16:9, the aligned endpoint and protective cradle form the one unmistakable dominant focal point occupying the strongest visual position; all candidate paths, pairwise comparison balances, preference signals, and calibration machinery are smaller, quieter, lower-contrast, and clearly subordinate support elements, original composition. Alignment flow: electric cyan #06B6D4. Risk/approval cue only: restrained amber #F59E0B confined to one tiny rejected candidate at the comparison mechanism. Constraints: high contrast, conceptually clear, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. No dual focal point, no competing centerpiece, no labels, glyphs, scales with markings, interface panels, or text-like strokes; use only smooth blank geometric forms.",
+    "alt_text": {
+      "en": "Candidate paths pass through human preference balances and converge on a safer aligned trajectory.",
+      "zh": "候选路径经过人类偏好权衡，并收敛到更安全的对齐轨迹。"
+    },
+    "caption": {
+      "en": "Preference optimization shapes behavior by comparing outcomes and reinforcing better trajectories.",
+      "zh": "偏好优化通过比较结果并强化更优轨迹来塑造行为。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 65000,
+    "sha256": "d78c765a466b75b05a5d31e381058f3b1b2bc8070beac94ef591b2cb82a5fcbd"
+  },
+  {
+    "id": "chapter-20",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: GPU topology shown as a mountain-scale compute archipelago of identical processor tiles connected by high-bandwidth bridges in local clusters and across a wider fabric. Scene/backdrop: dark #0B1220 void with deep-ocean blue #2563EB compute islands, no huge gradients. Style/medium: text-free editorial technical illustration, monumental aerial infrastructure visualization. Composition/framing: wide 16:9 oblique aerial view, one densely connected cluster as focal point, topology readable from bridge hierarchy, original composition. Interconnects: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on a single congested link. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "Processor-tile islands connect through local high-bandwidth bridges and a wider compute fabric.",
+      "zh": "处理器芯片岛通过局部高速桥梁与更广泛的计算网络互联。"
+    },
+    "caption": {
+      "en": "GPU system performance depends on the topology and bandwidth between compute units.",
+      "zh": "GPU 系统性能取决于计算单元之间的拓扑与带宽。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 187324,
+    "sha256": "2168645016c17bcf4bce2da0473a3e4c878750dd12f43aa949a4be6f609b8726"
+  },
+  {
+    "id": "chapter-21",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: a high-performance inference pipeline where incoming request capsules are batched, scheduled through a memory reservoir and parallel compute chambers, then streamed out as synchronized result particles. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB machinery, no huge gradients. Style/medium: text-free editorial technical illustration, crisp factory-flow cutaway. Composition/framing: wide 16:9, scheduler turbine at center as focal point, strong flow from many inputs to efficient parallel processing and outputs, original composition. Data and token flow: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on a latency bottleneck bypass. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
+    "alt_text": {
+      "en": "Requests are batched and scheduled through memory and parallel compute before streaming results.",
+      "zh": "请求经过批处理与调度，穿过内存和并行计算单元后流式输出结果。"
+    },
+    "caption": {
+      "en": "Efficient inference coordinates batching, memory, scheduling, and parallel execution.",
+      "zh": "高效推理需要协调批处理、内存、调度与并行执行。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 158826,
+    "sha256": "cdfa6ec0c0285ddab92e9cbf50e5958c4be0ba2d1a7791b3f6ba68fb9a71adb6"
+  },
+  {
+    "id": "chapter-22",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: distributed-training and RLHF infrastructure visualized as a coordinated radial compute system with multiple distinct processor/GPU towers or compute nodes surrounding one dominant coordinated training core. Scene/backdrop: an opaque full-frame dark #0B1220 ground with deep-ocean blue #2563EB structural platforms, clean matte texture, no huge gradients. Style/medium: text-free editorial technical illustration, precise isometric distributed-systems sculpture with physical depth. Composition/framing: wide 16:9, the central coordinated training core is the single dominant focal point; eight clearly separated processor towers or compute nodes form an orderly supporting ring, with two synchronized cyan orbital pathways visibly linking every tower to the core, original composition. Distributed-training mechanism: synchronized cyan model-shard and gradient circulation travels between the towers and core as smooth blank packets on electric cyan #06B6D4 paths; make distributed computation, circulation, and coordination unmistakable without labels. RLHF cue: restrained amber #F59E0B at exactly one compact amber RLHF feedback/approval injection gate on the outer perimeter, shown as one small contiguous guarded coupling where a single feedback stream enters the training network. All processor towers, compute nodes, model-shard packets, gradient paths, rings, platforms, reflections, particles, and the training core must remain deep-ocean blue #2563EB, electric cyan #06B6D4, dark #0B1220, or cool neutral tones. Explicitly forbid amber, gold, orange, or yellow anywhere except that one compact gate; no second warm object, no warm glow, no warm reflection, no warm highlight, and no decorative warm accent. Constraints: high contrast, conceptually clear, no excessive neon, no letters, no numerals, no formulas, no technical labels in the raster, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Every object and surface must be smooth, blank, and unmarked with no arrows, glyphs, icons, labels, signage, tick marks, interface markings, code-like lines, charts, or text-like strokes; the later Mermaid diagram will carry labels.",
+    "alt_text": {
+      "en": "Synchronized compute rings circulate model updates and controlled preference feedback.",
+      "zh": "同步计算环路传递模型更新与受控的偏好反馈。"
+    },
+    "caption": {
+      "en": "Distributed training infrastructure coordinates model state, gradients, and feedback at scale.",
+      "zh": "分布式训练基础设施在大规模环境中协调模型状态、梯度与反馈。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 112854,
+    "sha256": "3e68c4d20755e4dcf13981e89f6cd12a76af0743a678f47addf3eb0771a7aaf7"
+  },
+  {
+    "id": "chapter-23",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: human approval in an agentic interface, shown as an autonomous execution arm paused before a consequential gateway while a human hand operates a clear physical consent lever beside inspectable evidence objects. Scene/backdrop: light #F7F9FC with deep-ocean blue #2563EB structures, no huge gradients. Style/medium: text-free editorial technical illustration, tactile editorial still life with human-centered scale. Composition/framing: wide 16:9, consent lever and paused action capsule as focal point, calm generous negative space, original composition. Evidence paths: electric cyan #06B6D4. Approval cue: restrained amber #F59E0B only on the consent lever and gateway. Constraints: high contrast, no excessive neon, anatomically correct hand, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: evidence objects must be unlabeled blank faceted crystals and smooth material samples only. Remove all papers, documents, writing-like lines, photographs, landscapes, molecular networks, graphs, wireframes, screens, icons, glyphs, and pictograms. Keep the hand anatomically correct and the consent lever as the only amber focal cue.",
+    "alt_text": {
+      "en": "A human hand controls a consent lever while an autonomous action waits at a guarded gateway.",
+      "zh": "人手控制同意杆，自动化行动在受控闸门前等待。"
+    },
+    "caption": {
+      "en": "Agentic interfaces make consequential actions inspectable and subject to human approval.",
+      "zh": "智能体界面让关键行动可检查，并接受人类审批。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 87346,
+    "sha256": "17f9a101a817dbeeb6b120d1e85f02e2c198a4b6fb9fc58c30c03e50aa27b632"
+  },
+  {
+    "id": "chapter-24",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: a production control plane as a resilient offshore platform coordinating runtime cells, observability radar, policy barriers, rollback lifeboats, and redundant service routes under changing conditions. Scene/backdrop: dark #0B1220 sea and sky with deep-ocean blue #2563EB platform, controlled atmospheric depth, no huge gradients. Style/medium: text-free editorial technical illustration, cinematic but clean infrastructure cutaway. Composition/framing: wide 16:9, central operations deck as focal point, resilient redundant geometry, original composition. Operational paths: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B on alert beacons and rollback controls. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: remove all screens, maps, globes, charts, operators, human silhouettes, shield emblems, icons, symbols, letters, numerals, interface panels, and signage. Make the operations deck an opaque faceted command core with blank glass. Show policy as plain physical barriers and telemetry as cyan wave rings. Limit amber to two small alert beacons and the rollback capsules only.",
+    "alt_text": {
+      "en": "A resilient offshore control platform coordinates runtime cells, policy, telemetry, and rollback routes.",
+      "zh": "韧性的离岸控制平台协调运行时单元、策略、遥测与回滚通道。"
+    },
+    "caption": {
+      "en": "Production agent platforms combine observability, policy, redundancy, and recovery.",
+      "zh": "生产级智能体平台融合可观测性、策略、冗余与恢复能力。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 169762,
+    "sha256": "334fee5b8fd6aca6d566e5928c537dd062fa692278b9fe4950f5448fd5f4d251"
+  },
+  {
+    "id": "chapter-25",
+    "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: a capstone agent system assembled as one complete transparent machine integrating perception lenses, planning core, tool manipulators, layered memory, evaluation shield, human approval gate, and production telemetry in a coherent whole. Scene/backdrop: deep-ocean blue #2563EB stage with dark #0B1220 depth, subtle matte texture, no huge gradients. Style/medium: text-free editorial technical illustration, polished exploded-view master system sculpture. Composition/framing: wide 16:9, complete integrated machine as a strong singular focal point, subsystems clearly distinct yet connected, original composition. Information paths: electric cyan #06B6D4. Risk/approval cues only: restrained amber #F59E0B on the human gate and safety shield. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition. Targeted correction: remove the brain shape, shield emblem, human silhouette, hand icon, screens, charts, graphs, interface panels, pictograms, symbols, labels, and text-like markings. Express perception with plain lenses, planning with a faceted core, tools with manipulators, memory with layered blank crystals, safety with an unmarked amber barrier, approval with a simple amber mechanical gate, and telemetry with cyan pulses only.",
+    "alt_text": {
+      "en": "A complete transparent agent machine integrates perception, planning, tools, memory, safety, approval, and telemetry.",
+      "zh": "完整的透明智能体机器集成感知、规划、工具、记忆、安全、审批与遥测。"
+    },
+    "caption": {
+      "en": "The capstone unifies the course into one inspectable, controlled agent system.",
+      "zh": "毕业设计把课程内容统一为一个可检查、可控制的智能体系统。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 102388,
+    "sha256": "7c98efc107ab75cb5a93accbf514037b8ce6f0873451251bfa6d7fd12f5d9106"
+  }
+]

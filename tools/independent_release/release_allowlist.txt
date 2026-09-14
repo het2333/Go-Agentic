@@ -1,0 +1,8 @@
+.gitignore
+README.md
+README_EN.md
+LICENSE
+LICENSES
+code/go-agentic
+docs
+tools/independent_release

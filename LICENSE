@@ -1,0 +1,59 @@
+# Go Agentic dual-license path map / Go Agentic 双许可证路径映射
+
+This `LICENSE` file is the authoritative, machine-verifiable directory-to-license map for the independent release.
+
+本 `LICENSE` 文件是独立发行版的权威、机器可验证的路径与许可证映射。
+
+## CC BY 4.0 scope / CC BY 4.0 范围
+
+Documentation and original visual assets: CC BY 4.0
+
+文档与原创视觉资产采用 CC BY 4.0。
+
+| Path or content / 路径或内容 | License / 许可证 |
+| --- | --- |
+| `README.md` | CC BY 4.0 |
+| `README_EN.md` | CC BY 4.0 |
+| `docs/**/*.md` | CC BY 4.0 |
+| `docs/assets/visuals/**` | CC BY 4.0 |
+| Original Mermaid and SVG embedded in documentation | CC BY 4.0 |
+
+Complete CC BY 4.0 legal text / CC BY 4.0 完整法律文本：
+
+- [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt)
+- [docs/LICENSE-CC-BY-4.0.txt](docs/LICENSE-CC-BY-4.0.txt)
+
+## Apache License 2.0 scope / Apache License 2.0 范围
+
+Code under code/go-agentic: Apache License 2.0
+
+`code/go-agentic/` 下的代码采用 Apache License 2.0。
+
+| Path / 路径 | License / 许可证 |
+| --- | --- |
+| `code/go-agentic/**` | Apache License 2.0 |
+| `tools/independent_release/**` | Apache License 2.0 |
+| `docs/tests/**` | Apache License 2.0 |
+| `docs/index.html` | Apache License 2.0 |
+
+Complete Apache License 2.0 legal text / Apache License 2.0 完整法律文本：
+
+- [LICENSES/Apache-2.0.txt](LICENSES/Apache-2.0.txt)
+- [code/go-agentic/LICENSE](code/go-agentic/LICENSE)
+
+## License instruments / 许可证法律文本
+
+Legal-text files are reproduced license instruments, not governed course content.
+
+许可证法律文本是为适用许可证而复制的法律文书，不属于上述许可证管辖的课程内容。
+
+| Path / 路径 | Instrument / 文书 |
+| --- | --- |
+| `LICENSES/CC-BY-4.0.txt` | CC BY 4.0 legal text |
+| `docs/LICENSE-CC-BY-4.0.txt` | CC BY 4.0 legal text |
+| `LICENSES/Apache-2.0.txt` | Apache License 2.0 legal text |
+| `code/go-agentic/LICENSE` | Apache License 2.0 legal text |
+
+Third-party names, links, dependencies, and cited material remain subject to their respective rights and terms. See [docs/Sources-and-Acknowledgements.md](docs/Sources-and-Acknowledgements.md) or [docs/来源与致谢.md](docs/来源与致谢.md) for factual source disclosures.
+
+第三方名称、链接、依赖与引用材料仍受其各自权利和条款约束。事实性来源披露见 [docs/来源与致谢.md](docs/来源与致谢.md) 或 [docs/Sources-and-Acknowledgements.md](docs/Sources-and-Acknowledgements.md)。
