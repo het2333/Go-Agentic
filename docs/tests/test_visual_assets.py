@@ -11,7 +11,16 @@ VISUALS = ROOT / "docs" / "assets" / "visuals"
 MANIFEST = VISUALS / "manifest.json"
 EXPECTED_HERO_IDS = ["home"] + [f"chapter-{number:02d}" for number in range(1, 26)]
 EXPECTED_SECTION_IDS = ["chapter-01-coding-loop"]
-EXPECTED_IDS = EXPECTED_HERO_IDS[:2] + EXPECTED_SECTION_IDS + EXPECTED_HERO_IDS[2:]
+EXPECTED_INFOGRAPHIC_IDS = [
+    "chapter-01-coding-workflow-zh",
+    "chapter-01-coding-workflow-en",
+]
+EXPECTED_IDS = (
+    EXPECTED_HERO_IDS[:2]
+    + EXPECTED_SECTION_IDS
+    + EXPECTED_INFOGRAPHIC_IDS
+    + EXPECTED_HERO_IDS[2:]
+)
 REQUIRED_PROMPT_PHRASES = (
     "scientific-educational",
     "text-free editorial technical illustration",
@@ -118,15 +127,29 @@ class VisualAssetTests(unittest.TestCase):
         for item in manifest:
             with self.subTest(asset=item["id"]):
                 self.assertEqual(item["generation_mode"], "built-in image_gen")
-                self.assertIs(item["contains_text"], False)
-                expected_role = "section-illustration" if item["id"] in EXPECTED_SECTION_IDS else "hero"
+                is_infographic = item["id"] in EXPECTED_INFOGRAPHIC_IDS
+                self.assertIs(item["contains_text"], is_infographic)
+                if item["id"] in EXPECTED_SECTION_IDS:
+                    expected_role = "section-illustration"
+                elif is_infographic:
+                    expected_role = "section-infographic"
+                else:
+                    expected_role = "hero"
                 self.assertEqual(item.get("role", "hero"), expected_role)
+                if is_infographic:
+                    expected_language = "zh" if item["id"].endswith("-zh") else "en"
+                    self.assertEqual(item.get("language"), expected_language)
                 self.assertEqual(set(item["alt_text"]), {"en", "zh"})
                 self.assertEqual(set(item["caption"]), {"en", "zh"})
                 for metadata in (item["alt_text"], item["caption"]):
                     self.assertTrue(metadata["en"].strip())
                     self.assertTrue(metadata["zh"].strip())
-                for phrase in REQUIRED_PROMPT_PHRASES:
+                required_phrases = (
+                    ("scientific-educational", "no logos", "no watermarks")
+                    if is_infographic
+                    else REQUIRED_PROMPT_PHRASES
+                )
+                for phrase in required_phrases:
                     self.assertIn(phrase, item["prompt"])
 
                 path = VISUALS / f'{item["id"]}.webp'
@@ -138,7 +161,8 @@ class VisualAssetTests(unittest.TestCase):
 
                 with Image.open(path) as image:
                     self.assertEqual(image.format, "WEBP")
-                    self.assertEqual(image.size, (1536, 864))
+                    expected_size = (1672, 941) if is_infographic else (1536, 864)
+                    self.assertEqual(image.size, expected_size)
                     self.assertEqual(item["width"], image.width)
                     self.assertEqual(item["height"], image.height)
 

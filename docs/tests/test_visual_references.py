@@ -117,6 +117,24 @@ def edge_semantics(body: str) -> list[str | None]:
 
 
 class VisualReferenceTests(unittest.TestCase):
+    def test_chapter_one_uses_only_its_language_matched_workflow_infographic(self):
+        cases = (
+            (
+                DOCS / "chapter1" / "第一章 初识智能体.md",
+                "./assets/visuals/chapter-01-coding-workflow-zh.webp",
+                "./assets/visuals/chapter-01-coding-workflow-en.webp",
+            ),
+            (
+                DOCS / "chapter1" / "Chapter1-Introduction-to-Agents.md",
+                "./assets/visuals/chapter-01-coding-workflow-en.webp",
+                "./assets/visuals/chapter-01-coding-workflow-zh.webp",
+            ),
+        )
+        for file, expected, wrong_language in cases:
+            text = file.read_text(encoding="utf-8")
+            self.assertEqual(text.count(expected), 1, str(file))
+            self.assertNotIn(wrong_language, text, str(file))
+
     def test_every_required_diagram_declares_localized_accessibility_metadata(self):
         for chapter in DIAGRAM_CHAPTERS:
             for file in chapter_markdown_files(chapter):

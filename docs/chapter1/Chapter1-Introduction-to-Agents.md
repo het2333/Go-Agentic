@@ -39,7 +39,7 @@ It can function as a learning challenge, but it is not an engineering-level rubr
 The useful lesson is: **a minimal Coding Agent is not mysterious; it can be assembled from roughly 300 lines of ordinary code, an LLM, and a loop that continually receives feedback.** Here, “300 lines” is a demystification exercise. You need not memorize every syntax detail, but you should be able to explain why every module exists, where its data comes from, who executes an action, and what evidence permits termination.
 
 - [Read Geoffrey Huntley's article](https://ghuntley.com/agent/)
-- [Open the 266-line beginner edition, `coding_agent_beginner.py`](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/coding_agent_beginner.py)
+- [Open the 266-line teaching edition, `coding_agent_beginner.py`](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/coding_agent_beginner.py)
 - [Compare the 444-line hardened edition, `coding_agent.py`](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/coding_agent.py)
 
 ### Why Keep Both a 266-Line and a 444-Line Edition?
@@ -48,14 +48,14 @@ The 266-line edition makes the mechanism visible. The 444-line edition shows the
 
 | Edition | Best use | What it deliberately keeps or omits |
 | --- | --- | --- |
-| 266-line beginner edition | Run one full loop in a temporary directory and read it block by block | Keeps four tools, the model adapter, message history, and a round limit; path protection remains instructional |
+| 266-line teaching edition | Run one full loop in a temporary directory and read it block by block | Keeps four tools, the model adapter, message history, and a round limit; path protection remains instructional |
 | 444-line hardened edition | Study stricter descriptor-based file boundaries, response validation, timeouts, and process cleanup | Longer because it exposes symlink races, redirects, malformed responses, and environment-variable leakage |
 
-**Use only a temporary exercise directory on the first run.** The beginner edition's `--workspace` is not an operating-system sandbox. Once `--allow-run` is enabled, child processes still have the current user's authority. Understand the loop first, then study the hardened edition.
+**Use only a temporary exercise directory on the first run.** The teaching edition's `--workspace` is not an operating-system sandbox. Once `--allow-run` is enabled, child processes still have the current user's authority. Understand the loop first, then study the hardened edition.
 
 ### Read the 266 Lines as Six Building Blocks
 
-| Block | Code entry | Beginner analogy | Problem it solves |
+| Block | Code entry | Plain-language analogy | Problem it solves |
 | --- | --- | --- | --- |
 | Working rules | `SYSTEM` | Instructions for a temporary teammate | Ask the model to inspect, edit, and then verify |
 | Capability menu | `TOOLS`, `function_tool()` | A menu describes what can be ordered | Produce structured Tool Calls instead of vague intentions |
@@ -63,6 +63,11 @@ The 266-line edition makes the mechanism visible. The 444-line edition shows the
 | Model adapter | `ChatModel` | A courier between local state and the model | Build an HTTP request and retrieve the assistant message |
 | Agent heart | `run_agent()` | A continuously turning feedback wheel | Save decisions, execute tools, append Observations, and repeat |
 | Start button | `main()` | Power and wiring | Read configuration and connect the model, workbench, and loop |
+
+<figure class="course-hero course-case-visual course-section-infographic">
+  <img src="./assets/visuals/chapter-01-coding-workflow-en.webp" alt="English infographic showing four coding tools and the loop from user task through model decision, tool execution, observation, and the next model turn." width="1672" height="941" loading="lazy" decoding="async">
+  <figcaption><em>Four tools and a model-controlled feedback loop form an executable Coding Agent.</em></figcaption>
+</figure>
 
 #### Block 1: `SYSTEM` and `messages` Form Working Memory
 
@@ -113,7 +118,7 @@ The most important return value is not polished prose but `exit_code`. Zero usua
 
 `ChatModel` encodes `model`, `messages`, and `tools` as JSON, sends them to the model service over HTTP, and extracts `choices[0].message`. The model may return ordinary text or `tool_calls`. This layer never edits files, so replacing a model service does not require rewriting `Workspace` or the control loop.
 
-The API key belongs in the request header, never in tutorial source or Git. The beginner edition accepts a service compatible with Chat Completions Function Calling. A different API protocol requires a different adapter, not a different agent architecture.
+The API key belongs in the request header, never in tutorial source or Git. The teaching edition accepts a service compatible with Chat Completions Function Calling. A different API protocol requires a different adapter, not a different agent architecture.
 
 #### Block 5: `run_agent()` Is the Actual Agent Loop
 
@@ -165,7 +170,7 @@ In plain language:
 
 The distinction between writing and rechecking is crucial: **“file written” does not mean “bug fixed.”** The write receipt proves an Action occurred; a fresh zero exit from the check is the Verification for this task.
 
-### Five Common Beginner Misunderstandings
+### Five Common Misunderstandings
 
 1. **A prompt is not an agent.** It supplies rules; the loop, tools, and environment create an actionable system.
 2. **A Tool Call is not a side effect.** The model submits a structured request; Python performs the action.

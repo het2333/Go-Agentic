@@ -33,7 +33,7 @@ python3 coding_agent_beginner.py \
   '运行 python3 check_hello.py，分析失败原因，只修改 hello.py 修复问题，不改检查文件。最后重新运行检查并用中文解释。'
 ```
 
-初学者版用于理解机制，其路径检查不是操作系统沙箱。完成第一次练习后，把命令中的文件名改为 `coding_agent.py`，用同一个临时目录对照安全增强版。
+教学版用于理解机制，其路径检查不是操作系统沙箱。完成第一次练习后，把命令中的文件名改为 `coding_agent.py`，用同一个临时目录对照安全增强版。
 
 这些环境变量也可配置兼容服务；`OPENAI_BASE_URL` 是 API 根地址，程序会追加 `/chat/completions`，并把 `OPENAI_API_KEY` 作为 Bearer 凭证发送给该地址。远程地址必须使用 HTTPS；只有 `localhost` 或回环 IP 可使用 HTTP，供本地测试和开发。程序拒绝 3xx 重定向且不会访问重定向目标，避免把 Bearer 凭证带到另一个地址。本程序不自动读取 `.env` 文件。模型必须同时支持该接口和工具调用，并非所有模型都适用；例如官方文档注明 GPT-6 Astra 的工具调用需要 Responses API，不能直接用在这个示例中。
 

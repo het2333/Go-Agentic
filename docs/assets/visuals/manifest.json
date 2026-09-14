@@ -55,6 +55,46 @@
     "sha256": "38dfac23b640bb8f635ebaf8d7032898d496c6accd3e44cc3e9320cbadb0cd74"
   },
   {
+    "id": "chapter-01-coding-workflow-zh",
+    "role": "section-infographic",
+    "language": "zh",
+    "prompt": "Use case: scientific-educational. Asset type: original Chinese chapter infographic. Primary request: explain a Coding Agent workflow as one readable hand-drawn loop connecting 用户任务, LLM 决策, 工具调用, Python 执行, 观察结果, and 回到 LLM, with a separate four-tool panel for list_files, read_file, write_file, and run_command. Style: clean notebook-grid teaching diagram with navy handwriting, soft blue, green, amber, purple, and coral cards, clear directional arrows, generous spacing, and friendly technical icons. Language: all explanatory labels are Chinese except established code identifiers and the terms Coding Agent, Tools, Python, and LLM. Constraints: original composition, accurate hierarchy, high legibility at chapter width, no logos, no brands, no watermarks, no copied screenshots, and no third-party characters.",
+    "alt_text": {
+      "en": "Chinese infographic showing four coding tools and the loop from user task through model decision, tool execution, observation, and the next model turn.",
+      "zh": "中文信息图展示四种代码工具，以及从用户任务、模型决策、工具执行、观察结果到下一轮决策的完整循环。"
+    },
+    "caption": {
+      "en": "Four tools and a model-controlled feedback loop form an executable Coding Agent.",
+      "zh": "四种工具与模型控制的反馈循环，共同组成一个可以执行任务的 Coding Agent。"
+    },
+    "contains_text": true,
+    "generation_mode": "built-in image_gen",
+    "width": 1672,
+    "height": 941,
+    "size_bytes": 203628,
+    "sha256": "057ac9227889aa57608395c148cd65f0100c4d1eafadbb1002ffbc106c21ead9"
+  },
+  {
+    "id": "chapter-01-coding-workflow-en",
+    "role": "section-infographic",
+    "language": "en",
+    "prompt": "Use case: scientific-educational. Asset type: original English chapter infographic. Primary request: explain a Coding Agent workflow as one readable hand-drawn loop connecting User Task, LLM Decision, Tool Call, Python Execution, Observation, and Back to the LLM, with a separate four-tool panel for list_files, read_file, write_file, and run_command. Style: clean notebook-grid teaching diagram with navy handwriting, soft blue, green, amber, purple, and coral cards, clear directional arrows, generous spacing, and friendly technical icons. Language: concise English labels with exact code identifiers preserved. Constraints: original composition, accurate hierarchy, high legibility at chapter width, no logos, no brands, no watermarks, no copied screenshots, and no third-party characters.",
+    "alt_text": {
+      "en": "English infographic showing four coding tools and the loop from user task through model decision, tool execution, observation, and the next model turn.",
+      "zh": "英文信息图展示四种代码工具，以及从用户任务、模型决策、工具执行、观察结果到下一轮决策的完整循环。"
+    },
+    "caption": {
+      "en": "Four tools and a model-controlled feedback loop form an executable Coding Agent.",
+      "zh": "四种工具与模型控制的反馈循环，共同组成一个可以执行任务的 Coding Agent。"
+    },
+    "contains_text": true,
+    "generation_mode": "built-in image_gen",
+    "width": 1672,
+    "height": 941,
+    "size_bytes": 197450,
+    "sha256": "899e568afc8b19ef1296461b004a29cc849ebf74a4bab1b0b4943c00af66d63e"
+  },
+  {
     "id": "chapter-02",
     "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: runtime evolution from a simple reactive mechanism through layered planning machinery to a modern adaptive agent, represented by three increasingly capable mechanical organisms emerging along a curved temporal track. Scene/backdrop: deep-ocean blue #2563EB and dark #0B1220, clean matte texture, no huge gradients. Style/medium: text-free editorial technical illustration, sculptural museum-diorama aesthetic. Composition/framing: wide 16:9, left-to-right evolution with three unmistakably different silhouettes and the adaptive form as focal point, original composition. Connections: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on a small historical failure branch. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
     "alt_text": {
