@@ -138,6 +138,7 @@ class VisualReferenceTests(unittest.TestCase):
                 "./assets/visuals/chapter-01-coding-workflow-zh.webp",
                 "./assets/visuals/chapter-01-coding-workflow-en.webp",
                 "### 把 266 行代码看成六个积木",
+                "| 启动按钮 | `main()` | 开机与接线 | 读取参数和环境变量，组装模型、工作台与循环 |",
                 "图中 `run_command(\"python app.py\")` 是流程示意；本章代码实际接收参数数组：`run_command([\"python3\", \"app.py\"])`，不会把整段字符串交给 Shell。",
                 "#### 积木一：`SYSTEM` 和 `messages` 是工作记忆",
             ),
@@ -147,11 +148,12 @@ class VisualReferenceTests(unittest.TestCase):
                 "./assets/visuals/chapter-01-coding-workflow-en.webp",
                 "./assets/visuals/chapter-01-coding-workflow-zh.webp",
                 "### Read the 266 Lines as Six Building Blocks",
+                "| Start button | `main()` | Power and wiring | Read configuration and connect the model, workbench, and loop |",
                 "The pictured `run_command(\"python app.py\")` is shorthand for the workflow. The executable tool accepts an argument array: `run_command([\"python3\", \"app.py\"])`; it does not pass one shell string to a command interpreter.",
                 "#### Block 1: `SYSTEM` and `messages` Form Working Memory",
             ),
         )
-        for file, asset_id, expected, wrong_language, section_heading, clarification, next_heading in cases:
+        for file, asset_id, expected, wrong_language, section_heading, final_row, clarification, next_heading in cases:
             text = file.read_text(encoding="utf-8")
             self.assertEqual(text.count(expected), 1, str(file))
             self.assertNotIn(wrong_language, text, str(file))
@@ -159,8 +161,8 @@ class VisualReferenceTests(unittest.TestCase):
             self.assertEqual(text.count(figure), 1, str(file))
             self.assertIn(clarification, text, str(file))
             self.assertLess(text.index(section_heading), text.index(figure), str(file))
-            self.assertLess(text.index(figure), text.index(clarification), str(file))
-            self.assertLess(text.index(clarification), text.index(next_heading), str(file))
+            expected_sequence = f"{final_row}\n\n{figure}\n\n{clarification}\n\n{next_heading}"
+            self.assertIn(expected_sequence, text, str(file))
 
     def test_every_required_diagram_declares_localized_accessibility_metadata(self):
         for chapter in DIAGRAM_CHAPTERS:
