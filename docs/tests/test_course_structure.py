@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 import re
 import unittest
@@ -9,6 +10,9 @@ DOCS = ROOT / "docs"
 ZH_SIDEBAR = (DOCS / "_sidebar.md").read_text(encoding="utf-8")
 EN_SIDEBAR = (DOCS / "_sidebar_en.md").read_text(encoding="utf-8")
 INDEX_HTML = (DOCS / "index.html").read_text(encoding="utf-8")
+VISUAL_MANIFEST = json.loads(
+    (DOCS / "assets" / "visuals" / "manifest.json").read_text(encoding="utf-8")
+)
 
 EXPECTED_ZH_STAGES = [
     "第一阶段：Agentic AI 基础",
@@ -99,7 +103,12 @@ class CourseStructureTests(unittest.TestCase):
             markdown = chapter_file.read_text(encoding="utf-8")
             image_sources.extend(re.findall(r'<img[^>]+src="([^"]+)"', markdown))
 
-        self.assertTrue(image_sources, "chapter pages must retain their visual assets")
+        expected_references = sum(
+            1 if item.get("role") == "section-infographic" else 2
+            for item in VISUAL_MANIFEST
+            if item["id"] != "home"
+        )
+        self.assertEqual(len(image_sources), expected_references)
         for source in image_sources:
             resolved = urlsplit(urljoin(publication_base, source)).path
             self.assertTrue(

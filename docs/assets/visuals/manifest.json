@@ -58,6 +58,8 @@
     "id": "chapter-01-coding-workflow-zh",
     "role": "section-infographic",
     "language": "zh",
+    "ingestion_mode": "user-supplied attachment",
+    "source_format": "PNG converted to WebP",
     "prompt": "Use case: scientific-educational. Asset type: original Chinese chapter infographic. Primary request: explain a Coding Agent workflow as one readable hand-drawn loop connecting 用户任务, LLM 决策, 工具调用, Python 执行, 观察结果, and 回到 LLM, with a separate four-tool panel for list_files, read_file, write_file, and run_command. Style: clean notebook-grid teaching diagram with navy handwriting, soft blue, green, amber, purple, and coral cards, clear directional arrows, generous spacing, and friendly technical icons. Language: all explanatory labels are Chinese except established code identifiers and the terms Coding Agent, Tools, Python, and LLM. Constraints: original composition, accurate hierarchy, high legibility at chapter width, no logos, no brands, no watermarks, no copied screenshots, and no third-party characters.",
     "alt_text": {
       "en": "Chinese infographic showing four coding tools and the loop from user task through model decision, tool execution, observation, and the next model turn.",
@@ -78,6 +80,8 @@
     "id": "chapter-01-coding-workflow-en",
     "role": "section-infographic",
     "language": "en",
+    "ingestion_mode": "user-supplied attachment",
+    "source_format": "PNG converted to WebP",
     "prompt": "Use case: scientific-educational. Asset type: original English chapter infographic. Primary request: explain a Coding Agent workflow as one readable hand-drawn loop connecting User Task, LLM Decision, Tool Call, Python Execution, Observation, and Back to the LLM, with a separate four-tool panel for list_files, read_file, write_file, and run_command. Style: clean notebook-grid teaching diagram with navy handwriting, soft blue, green, amber, purple, and coral cards, clear directional arrows, generous spacing, and friendly technical icons. Language: concise English labels with exact code identifiers preserved. Constraints: original composition, accurate hierarchy, high legibility at chapter width, no logos, no brands, no watermarks, no copied screenshots, and no third-party characters.",
     "alt_text": {
       "en": "English infographic showing four coding tools and the loop from user task through model decision, tool execution, observation, and the next model turn.",

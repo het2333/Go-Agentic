@@ -72,6 +72,19 @@ def hero_contract(file: Path, asset_id: str, source: str) -> str:
     )
 
 
+def infographic_contract(file: Path, asset_id: str, source: str) -> str:
+    language = "en" if is_english(file) else "zh"
+    metadata = MANIFEST[asset_id]
+    return (
+        '<figure class="course-hero course-case-visual course-section-infographic">\n'
+        f'  <img src="{source}" alt="{metadata["alt_text"][language]}" '
+        f'width="{metadata["width"]}" height="{metadata["height"]}" '
+        'loading="lazy" decoding="async">\n'
+        f'  <figcaption><em>{metadata["caption"][language]}</em></figcaption>\n'
+        "</figure>"
+    )
+
+
 def diagram_body(file: Path) -> str:
     match = re.search(r"```mermaid\n(?P<body>.*?)\n```", file.read_text(encoding="utf-8"), re.DOTALL)
     if match is None:
@@ -121,19 +134,33 @@ class VisualReferenceTests(unittest.TestCase):
         cases = (
             (
                 DOCS / "chapter1" / "第一章 初识智能体.md",
+                "chapter-01-coding-workflow-zh",
                 "./assets/visuals/chapter-01-coding-workflow-zh.webp",
                 "./assets/visuals/chapter-01-coding-workflow-en.webp",
+                "### 把 266 行代码看成六个积木",
+                "图中 `run_command(\"python app.py\")` 是流程示意；本章代码实际接收参数数组：`run_command([\"python3\", \"app.py\"])`，不会把整段字符串交给 Shell。",
+                "#### 积木一：`SYSTEM` 和 `messages` 是工作记忆",
             ),
             (
                 DOCS / "chapter1" / "Chapter1-Introduction-to-Agents.md",
+                "chapter-01-coding-workflow-en",
                 "./assets/visuals/chapter-01-coding-workflow-en.webp",
                 "./assets/visuals/chapter-01-coding-workflow-zh.webp",
+                "### Read the 266 Lines as Six Building Blocks",
+                "The pictured `run_command(\"python app.py\")` is shorthand for the workflow. The executable tool accepts an argument array: `run_command([\"python3\", \"app.py\"])`; it does not pass one shell string to a command interpreter.",
+                "#### Block 1: `SYSTEM` and `messages` Form Working Memory",
             ),
         )
-        for file, expected, wrong_language in cases:
+        for file, asset_id, expected, wrong_language, section_heading, clarification, next_heading in cases:
             text = file.read_text(encoding="utf-8")
             self.assertEqual(text.count(expected), 1, str(file))
             self.assertNotIn(wrong_language, text, str(file))
+            figure = infographic_contract(file, asset_id, expected)
+            self.assertEqual(text.count(figure), 1, str(file))
+            self.assertIn(clarification, text, str(file))
+            self.assertLess(text.index(section_heading), text.index(figure), str(file))
+            self.assertLess(text.index(figure), text.index(clarification), str(file))
+            self.assertLess(text.index(clarification), text.index(next_heading), str(file))
 
     def test_every_required_diagram_declares_localized_accessibility_metadata(self):
         for chapter in DIAGRAM_CHAPTERS:

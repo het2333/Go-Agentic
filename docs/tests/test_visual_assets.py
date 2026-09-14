@@ -139,6 +139,8 @@ class VisualAssetTests(unittest.TestCase):
                 if is_infographic:
                     expected_language = "zh" if item["id"].endswith("-zh") else "en"
                     self.assertEqual(item.get("language"), expected_language)
+                    self.assertEqual(item.get("ingestion_mode"), "user-supplied attachment")
+                    self.assertEqual(item.get("source_format"), "PNG converted to WebP")
                 self.assertEqual(set(item["alt_text"]), {"en", "zh"})
                 self.assertEqual(set(item["caption"]), {"en", "zh"})
                 for metadata in (item["alt_text"], item["caption"]):

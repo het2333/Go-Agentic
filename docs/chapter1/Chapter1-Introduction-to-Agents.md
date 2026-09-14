@@ -69,6 +69,8 @@ The 266-line edition makes the mechanism visible. The 444-line edition shows the
   <figcaption><em>Four tools and a model-controlled feedback loop form an executable Coding Agent.</em></figcaption>
 </figure>
 
+The pictured `run_command("python app.py")` is shorthand for the workflow. The executable tool accepts an argument array: `run_command(["python3", "app.py"])`; it does not pass one shell string to a command interpreter.
+
 #### Block 1: `SYSTEM` and `messages` Form Working Memory
 
 The program begins with two messages:
