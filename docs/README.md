@@ -13,6 +13,8 @@
 
 Go Agentic 是一门面向现代 Agentic AI 工程的 25 章实践课程。课程先帮你构建能运行、能验证的 Agent，再深入模型数学、后训练、高性能推理、分布式基础设施和生产平台。Pi 贯穿 Agent 工程实践；DeepSeek Harness 和 Hermes 只用于解释不同架构边界。
 
+> **从一个真实任务开始：** 测试先失败，Agent 读取 `hello.py`、提出最小修改、重新运行检查，并且只在获得通过证据后结束。[进入第一章查看完整轨迹](./chapter1/第一章%20初识智能体.md)。
+
 - [项目仓库说明](../README.md)
 - [English course home](./README_EN.md)
 - [来源与致谢](./来源与致谢.md)

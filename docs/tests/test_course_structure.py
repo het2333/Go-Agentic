@@ -66,6 +66,18 @@ def resolve_docsify_target(target: str) -> Path | None:
     return DOCS / decoded
 
 
+def public_repository_targets(markdown: str) -> set[str]:
+    prefix = "https://github.com/het2333/Go-Agentic/"
+    targets = set()
+    for target in markdown_links(markdown):
+        if not target.startswith(prefix):
+            continue
+        match = re.match(rf"{re.escape(prefix)}(?:blob|tree)/main/([^?#]+)", target)
+        if match:
+            targets.add(unquote(match.group(1)))
+    return targets
+
+
 def mapping_has_chapter(chapter_number: int) -> bool:
     zh = re.search(rf"'第[^']*章[^']*\.md'\s*:\s*'Chapter{chapter_number}-[^']+\.md'", INDEX_HTML)
     en = re.search(rf"'Chapter{chapter_number}-[^']+\.md'\s*:\s*'第[^']*章[^']*\.md'", INDEX_HTML)
@@ -79,6 +91,59 @@ def mapping_has_appendix(chinese_name: str, english_name: str) -> bool:
 
 
 class CourseStructureTests(unittest.TestCase):
+    def test_opening_case_links_to_runnable_lab_and_progressive_upgrade_map(self):
+        homepage_expectations = (
+            (DOCS / "README.md", "进入第一章查看完整轨迹", "./chapter1/第一章%20初识智能体.md"),
+            (
+                DOCS / "README_EN.md",
+                "See the complete trace in Chapter 1",
+                "./chapter1/Chapter1-Introduction-to-Agents.md",
+            ),
+        )
+        for homepage_file, label, target in homepage_expectations:
+            markdown = homepage_file.read_text(encoding="utf-8")
+            self.assertIn(f"[{label}]({target})", markdown)
+            self.assertNotIn("codex://", markdown)
+
+        chapter_files = (
+            DOCS / "chapter1" / "第一章 初识智能体.md",
+            DOCS / "chapter1" / "Chapter1-Introduction-to-Agents.md",
+        )
+        expected_lab_targets = {
+            "code/go-agentic/01-minimal-loop/CODING_AGENT.md",
+            "code/go-agentic/01-minimal-loop/coding_agent.py",
+        }
+        for chapter_file in chapter_files:
+            markdown = chapter_file.read_text(encoding="utf-8")
+            targets = public_repository_targets(markdown)
+            self.assertTrue(
+                expected_lab_targets <= targets,
+                f"opening case must expose the runnable guide and implementation: {chapter_file}",
+            )
+            self.assertNotIn("codex://", markdown)
+
+        appendix_files = (
+            DOCS / "appendices" / "附录C 实验与排错索引.md",
+            DOCS / "appendices" / "Appendix-C-Labs-and-Troubleshooting.md",
+        )
+        for appendix_file in appendix_files:
+            markdown = appendix_file.read_text(encoding="utf-8")
+            targets = public_repository_targets(markdown)
+            self.assertIn("code/go-agentic/01-minimal-loop/CODING_AGENT.md", targets)
+            self.assertNotIn("codex://", markdown)
+            linked_chapters = {
+                int(match.group(1))
+                for target in chapter_links(markdown)
+                if (match := re.search(r"chapter(\d+)", target, re.IGNORECASE))
+            }
+            self.assertTrue(
+                {4, 5, 9, 12, 24} <= linked_chapters,
+                f"progressive lab map is incomplete: {appendix_file}",
+            )
+
+        for target in expected_lab_targets:
+            self.assertTrue((ROOT / target).is_file(), f"missing opening-case lab target: {target}")
+
     def test_cdn_dependencies_are_exactly_pinned_to_browser_verified_versions(self):
         expected_urls = (
             "//cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css",

@@ -42,6 +42,20 @@ python3 -m pytest 23-agentic-ui -q
 
 `06-lifecycle/selection_matrix.md` and `25-capstone/README.md` are reviewed artifacts rather than Pytest targets. Submit their decision evidence or project evidence packs manually.
 
+### C.1.1 Progressive Lab: Turn the Opening Coding Agent into a Production System
+
+Start with the [single-file native coding-agent guide](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/CODING_AGENT.md). Do not add every capability at once. At each checkpoint, address one failure mode that has become visible and retain the before/after trace and test result.
+
+| Checkpoint | Add to the same agent | Evidence required |
+| --- | --- | --- |
+| [Chapter 4](../chapter4/Chapter4-Building-Classic-Agent-Paradigms.md) | Explicit Observe—Decide—Act—Verify state and a bounded loop | Tool failures feed the next turn; repeated state and exhausted budget terminate |
+| [Chapter 5](../chapter5/Chapter5-Building-Agents-with-Low-Code-Platforms.md) | Argument schemas, precise edits, tool authority, and trust boundaries | Invalid arguments do not execute; model text cannot create side effects outside tools |
+| [Chapter 9](../chapter9/Chapter9-Context-Engineering.md) | JIT file retrieval, structured working notes, and compaction | A compacted long task retains its goal, constraints, verification state, and next step |
+| [Chapter 12](../chapter12/Chapter12-Agent-Performance-Evaluation.md) | Reproducible tasks, trace metrics, safety regressions, and an independent evaluator | Report failure rate, cost, and risk slices rather than only a successful demo |
+| [Chapter 24](../chapter24/Chapter24-Production-Runtime-and-Platform-Engineering.md) | Durable task state, idempotency, retries, recovery, approvals, and SLOs | Restarts and unknown outcomes cannot cause duplicate writes or false completion |
+
+The core stays small throughout: `messages → model decision → tool call → environment execution → observation → next decision`. Add a component only when it answers a reproducible failure, not to make the architecture diagram look more elaborate.
+
 ## C.2 Recommended Order
 
 1. **Minimal loop:** 01 → 04 → 05.

@@ -13,6 +13,8 @@
 
 Go Agentic is a 25-chapter, hands-on course in full-stack Agentic AI engineering. It first teaches you to build agents that run and verify their work, then moves into model mathematics, post-training, high-performance inference, distributed infrastructure, and production platforms. Pi connects the agent-engineering practice; DeepSeek Harness and Hermes appear only when a different architectural boundary is useful.
 
+> **Start with a real task:** a test fails, the agent reads `hello.py`, proposes the smallest repair, reruns the check, and stops only after it receives passing evidence. [See the complete trace in Chapter 1](./chapter1/Chapter1-Introduction-to-Agents.md).
+
 - [Repository overview](../README_EN.md)
 - [中文课程首页](./README.md)
 - [Sources and Acknowledgements](./Sources-and-Acknowledgements.md)

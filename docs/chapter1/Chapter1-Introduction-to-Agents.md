@@ -9,7 +9,26 @@
   <figcaption><em>An agent becomes meaningful through a controlled boundary with its environment.</em></figcaption>
 </figure>
 
-A chat model generates an answer; an agent advances a task in an environment. Both may use the same kind of large language model, but an agent also needs tools, state, a control loop, authority boundaries, and a verifiable stopping condition. This chapter establishes the course vocabulary and runs a minimal login-failure loop without an API key or network access.
+## Opening Case: How Does an Agent Know the Repair Is Real?
+
+The user supplies one goal: “Run `check_hello.py`, diagnose the failure, change only `hello.py`, and verify again.” The initial function returns a username unchanged, while the check requires surrounding whitespace to be removed. A single-file coding agent receives a workspace and four controlled tools—not a packet containing the answer. New evidence drives the trace:
+
+| Turn | Model choice | What the harness executes | New evidence |
+| --- | --- | --- | --- |
+| 1 | Run the check | `python3 check_hello.py` | Nonzero exit and a failed assertion |
+| 2 | Read the relevant file | `read_file("hello.py")` | Finds `return username` |
+| 3 | Write the smallest repair | Change it to `return username.strip()` | The file changed, but correctness is not yet proven |
+| 4 | Run the check again | `python3 check_hello.py` | Zero exit; all four cases pass |
+| 5 | Return the final explanation | Stop the loop | The answer cites the fresh verification result |
+
+The model never touches the file or terminal directly. It emits structured tool calls; the Python harness validates arguments, performs side effects, and appends each observation to `messages`. Nor does the code hard-wire “read, edit, test.” The model chooses the next step from current evidence, while the check result determines whether the task may finish.
+
+- [Run the single-file native coding agent](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/CODING_AGENT.md): connect a real tool-calling model and complete the same task in a temporary exercise directory.
+- [Inspect the complete `coding_agent.py`](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/coding_agent.py): read `run_agent()` first, then the model, workspace, and tool boundaries.
+
+No API key is required to begin. Section 1.4 supplies a deterministic offline version of the same class of failure so that you can inspect the loop and evidence first. [Appendix C](../appendices/Appendix-C-Labs-and-Troubleshooting.md) then turns this minimal agent into a progressive lab covering tools, context, evaluation, and a production runtime.
+
+This case exposes the boundary between a chat model and an agent: a chat model generates an answer; an agent advances a task in an environment. Both may use the same kind of large language model, but an agent also needs tools, state, a control loop, authority boundaries, and a verifiable stopping condition. This chapter establishes the course vocabulary and dissects a minimal login-failure loop without an API key or network access.
 
 By the end of this chapter, you should be able to:
 
@@ -17,7 +36,7 @@ By the end of this chapter, you should be able to:
 - state an agent's task, authority, and termination boundaries;
 - explain the Observation—Action—Verification loop;
 - decide when a fixed Workflow or an autonomous Loop fits a task;
-- run and interpret the course's deterministic minimal example.
+- run and interpret the course's deterministic minimal example, then map it to the opening coding-agent trace.
 
 ## 1.1 Agent Boundaries
 
