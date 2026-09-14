@@ -5,7 +5,7 @@
 # Chapter 3: LLM and Systems Foundations for Agents
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-03.webp" alt="Abstract token particles flow through attention and reasoning machinery into a concrete tool action." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-03.webp" alt="Abstract token particles flow through attention and reasoning machinery into a concrete tool action." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Language-model representations become useful when the runtime converts them into controlled actions.</em></figcaption>
 </figure>
 

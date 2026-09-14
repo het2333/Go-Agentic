@@ -3,7 +3,7 @@
 # Chapter 7: Modern Agent Runtimes: Pi as the Mainline
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-07.webp" alt="A layered control citadel coordinates scheduling, tools, state, and telemetry around execution." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-07.webp" alt="A layered control citadel coordinates scheduling, tools, state, and telemetry around execution." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>A custom runtime needs a control plane that governs every execution boundary.</em></figcaption>
 </figure>
 

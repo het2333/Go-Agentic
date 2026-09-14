@@ -1,7 +1,7 @@
 # Chapter 25: Graduation Project, Review, and Future Directions
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-25.webp" alt="A complete transparent agent machine integrates perception, planning, tools, memory, safety, approval, and telemetry." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-25.webp" alt="A complete transparent agent machine integrates perception, planning, tools, memory, safety, approval, and telemetry." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>The capstone unifies the course into one inspectable, controlled agent system.</em></figcaption>
 </figure>
 

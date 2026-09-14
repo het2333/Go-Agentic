@@ -1,7 +1,7 @@
 # Chapter 12: Environments, Evaluation, Observability, and Safety
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-12.webp" alt="A technical artifact passes through evidence, stress, and safety checks before a guarded release gate." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-12.webp" alt="A technical artifact passes through evidence, stress, and safety checks before a guarded release gate." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Evaluation and safety gates turn agent outputs into reviewable release candidates.</em></figcaption>
 </figure>
 

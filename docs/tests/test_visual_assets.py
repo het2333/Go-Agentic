@@ -9,7 +9,9 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 VISUALS = ROOT / "docs" / "assets" / "visuals"
 MANIFEST = VISUALS / "manifest.json"
-EXPECTED_IDS = ["home"] + [f"chapter-{number:02d}" for number in range(1, 26)]
+EXPECTED_HERO_IDS = ["home"] + [f"chapter-{number:02d}" for number in range(1, 26)]
+EXPECTED_SECTION_IDS = ["chapter-01-coding-loop"]
+EXPECTED_IDS = EXPECTED_HERO_IDS[:2] + EXPECTED_SECTION_IDS + EXPECTED_HERO_IDS[2:]
 REQUIRED_PROMPT_PHRASES = (
     "scientific-educational",
     "text-free editorial technical illustration",
@@ -110,13 +112,15 @@ class VisualAssetTests(unittest.TestCase):
         self.assertEqual([item["id"] for item in manifest], EXPECTED_IDS)
         prompts = [item["prompt"] for item in manifest]
         hashes = [item["sha256"] for item in manifest]
-        self.assertEqual(len(set(prompts)), 26, "all 26 generation prompts must be pairwise unique")
-        self.assertEqual(len(set(hashes)), 26, "all 26 visual SHA-256 values must be pairwise unique")
+        self.assertEqual(len(set(prompts)), len(EXPECTED_IDS), "all generation prompts must be pairwise unique")
+        self.assertEqual(len(set(hashes)), len(EXPECTED_IDS), "all visual SHA-256 values must be pairwise unique")
 
         for item in manifest:
             with self.subTest(asset=item["id"]):
                 self.assertEqual(item["generation_mode"], "built-in image_gen")
                 self.assertIs(item["contains_text"], False)
+                expected_role = "section-illustration" if item["id"] in EXPECTED_SECTION_IDS else "hero"
+                self.assertEqual(item.get("role", "hero"), expected_role)
                 self.assertEqual(set(item["alt_text"]), {"en", "zh"})
                 self.assertEqual(set(item["caption"]), {"en", "zh"})
                 for metadata in (item["alt_text"], item["caption"]):

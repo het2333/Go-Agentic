@@ -1,6 +1,13 @@
 # 单文件原生 Coding Agent
 
-`coding_agent.py` 是一个可以调用真实模型、读写真实文件、运行真实程序的单文件教学版 Coding Agent。Python 3.10+，只用标准库，无需安装 SDK、LangChain 或 LangGraph。
+这里提供两个可以调用真实模型、读写真实文件、运行真实程序的单文件 Coding Agent。Python 3.10+，只用标准库，无需安装 SDK、LangChain 或 LangGraph。
+
+| 文件 | 行数 | 用途 |
+| --- | ---: | --- |
+| `coding_agent_beginner.py` | 266 | 第一次阅读：六个模块、四个工具和完整反馈循环都保持可见；只在临时练习目录使用 |
+| `coding_agent.py` | 444 | 进阶对照：加入文件描述符边界、重定向拒绝、响应校验、进程清理与环境变量最小化 |
+
+建议先打开 `coding_agent_beginner.py`，按 `run_agent()` → `TOOLS` → `Workspace.execute()` → `ChatModel.__call__()` → `main()` 的顺序阅读，再回到本指南运行练习。第一章提供逐模块中文解释。
 
 安全文件工具目前支持具备 `dir_fd`、文件描述符目录遍历、`O_NOFOLLOW` 和 `O_DIRECTORY` 的 POSIX 平台（常见的 Linux 与 macOS）。程序启动时会检查这些能力；不支持的平台会在访问文件前明确停止，不会退回到先检查路径再按路径名打开的不安全实现。绝对工作目录从已打开的文件系统根描述符开始，按组件逐级打开；相对工作目录先绑定当前目录描述符，再逐级打开。所有根路径组件都禁止跟随符号链接，含 `..` 的根路径会被拒绝。日志显示的工作目录路径只是说明信息，文件工具的访问权只来自已经绑定的根描述符。
 
@@ -20,11 +27,13 @@ export OPENAI_BASE_URL='https://api.openai.com/v1'
 exercise_dir=$(mktemp -d)
 cp demo/*.py "$exercise_dir/"
 
-python3 coding_agent.py \
+python3 coding_agent_beginner.py \
   --workspace "$exercise_dir" \
   --allow-run \
   '运行 python3 check_hello.py，分析失败原因，只修改 hello.py 修复问题，不改检查文件。最后重新运行检查并用中文解释。'
 ```
+
+初学者版用于理解机制，其路径检查不是操作系统沙箱。完成第一次练习后，把命令中的文件名改为 `coding_agent.py`，用同一个临时目录对照安全增强版。
 
 这些环境变量也可配置兼容服务；`OPENAI_BASE_URL` 是 API 根地址，程序会追加 `/chat/completions`，并把 `OPENAI_API_KEY` 作为 Bearer 凭证发送给该地址。远程地址必须使用 HTTPS；只有 `localhost` 或回环 IP 可使用 HTTP，供本地测试和开发。程序拒绝 3xx 重定向且不会访问重定向目标，避免把 Bearer 凭证带到另一个地址。本程序不自动读取 `.env` 文件。模型必须同时支持该接口和工具调用，并非所有模型都适用；例如官方文档注明 GPT-6 Astra 的工具调用需要 Responses API，不能直接用在这个示例中。
 

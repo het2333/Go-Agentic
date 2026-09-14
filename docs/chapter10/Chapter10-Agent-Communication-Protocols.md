@@ -1,7 +1,7 @@
 # Chapter 10: MCP, Skills, and A2A
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-10.webp" alt="A modular bridge carries standardized packets between an agent runtime and varied external tools." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-10.webp" alt="A modular bridge carries standardized packets between an agent runtime and varied external tools." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>A shared protocol lets runtimes reach many tools through one consistent bridge.</em></figcaption>
 </figure>
 

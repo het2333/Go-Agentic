@@ -36,6 +36,25 @@
     "sha256": "01fbfae2e27ccf0698a37a221ccc1d1351afc32d14a0d82ac25305ec6333cd2e"
   },
   {
+    "id": "chapter-01-coding-loop",
+    "role": "section-illustration",
+    "prompt": "Use case: scientific-educational. Asset type: original chapter-section illustration for a beginner Coding Agent tutorial. Primary request: visualize one complete coding-agent repair loop as five unmistakable visual stations: a failing test terminal, inspection of a source file, a minimal patch action, the test running again, and a final verified result. A single faceted decision core chooses each next step and receives evidence back after every station. Scene/backdrop: opaque full-frame dark navy #0B1220, subtle matte paper grain, no large gradients. Subject: a central crystalline agent core connected in a clean clockwise loop to five distinct unlabeled objects: terminal panel with one small restrained amber failure pulse, open source-code document represented only by abstract blank line blocks, precise patch tool changing one tiny segment, terminal panel rerun in electric cyan, and a transparent verification shield with a bright cyan check-like geometric notch but no written symbols. Style/medium: refined text-free editorial technical illustration, geometric isometric cutaway, polished programming textbook visual, original composition. Composition/framing: wide 16:9 landscape, central core and circular evidence loop as focal point, generous negative space, each station visually separated, arrows and paths clearly directional without labels. Color palette: deep-ocean blue #2563EB, electric cyan #06B6D4, dark navy #0B1220, cool neutral gray; restrained amber #F59E0B only at the initial failed-test pulse. Constraints: technically clear distinction between model decision and environment execution, high contrast, fully opaque image, no letters, no numerals, no formulas, no code text, no logos, no brands, no watermarks, no people, no third-party characters, no screenshots, no copied composition. Avoid: illegible pseudo-text, decorative UI clutter, excessive neon, warm color outside the single failure pulse.",
+    "alt_text": {
+      "en": "A crystalline decision core guides a five-stage code repair loop from failed test to verified result.",
+      "zh": "晶体决策核心引导五步代码修复循环，从测试失败走向验证通过。"
+    },
+    "caption": {
+      "en": "The model chooses; tools change the environment; fresh evidence decides the next turn.",
+      "zh": "模型负责选择，工具负责改变环境，新证据决定下一轮。"
+    },
+    "contains_text": false,
+    "generation_mode": "built-in image_gen",
+    "width": 1536,
+    "height": 864,
+    "size_bytes": 93336,
+    "sha256": "38dfac23b640bb8f635ebaf8d7032898d496c6accd3e44cc3e9320cbadb0cd74"
+  },
+  {
     "id": "chapter-02",
     "prompt": "Use case: scientific-educational. Asset type: chapter hero. Primary request: runtime evolution from a simple reactive mechanism through layered planning machinery to a modern adaptive agent, represented by three increasingly capable mechanical organisms emerging along a curved temporal track. Scene/backdrop: deep-ocean blue #2563EB and dark #0B1220, clean matte texture, no huge gradients. Style/medium: text-free editorial technical illustration, sculptural museum-diorama aesthetic. Composition/framing: wide 16:9, left-to-right evolution with three unmistakably different silhouettes and the adaptive form as focal point, original composition. Connections: electric cyan #06B6D4. Risk cues only: restrained amber #F59E0B on a small historical failure branch. Constraints: high contrast, no excessive neon, no letters, no numerals, no formulas, no logos, no brands, no watermarks, no third-party characters, no screenshots, no copied composition.",
     "alt_text": {

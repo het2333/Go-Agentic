@@ -1,7 +1,7 @@
 # Chapter 19: Alignment and Reinforcement Learning
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-19.webp" alt="Candidate paths pass through human preference balances and converge on a safer aligned trajectory." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-19.webp" alt="Candidate paths pass through human preference balances and converge on a safer aligned trajectory." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Preference optimization shapes behavior by comparing outcomes and reinforcing better trajectories.</em></figcaption>
 </figure>
 

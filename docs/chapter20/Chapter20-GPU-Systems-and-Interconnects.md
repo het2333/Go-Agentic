@@ -1,7 +1,7 @@
 # Chapter 20: GPU Systems and High-Speed Interconnects
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-20.webp" alt="Processor-tile islands connect through local high-bandwidth bridges and a wider compute fabric." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-20.webp" alt="Processor-tile islands connect through local high-bandwidth bridges and a wider compute fabric." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>GPU system performance depends on the topology and bandwidth between compute units.</em></figcaption>
 </figure>
 

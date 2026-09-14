@@ -1,7 +1,7 @@
 # Chapter 15: Multi-Agent Systems Project
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-15.webp" alt="Specialized agent workshops exchange tasks through a coordinated cyber-town roundabout." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-15.webp" alt="Specialized agent workshops exchange tasks through a coordinated cyber-town roundabout." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Multi-agent systems divide roles while coordinating shared state and resources.</em></figcaption>
 </figure>
 

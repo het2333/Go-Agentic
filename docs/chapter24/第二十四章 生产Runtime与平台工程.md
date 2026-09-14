@@ -1,7 +1,7 @@
 # 第二十四章 生产 Runtime 与平台工程
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-24.webp" alt="韧性的离岸控制平台协调运行时单元、策略、遥测与回滚通道。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-24.webp" alt="韧性的离岸控制平台协调运行时单元、策略、遥测与回滚通道。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>生产级智能体平台融合可观测性、策略、冗余与恢复能力。</em></figcaption>
 </figure>
 

@@ -1,7 +1,7 @@
 # Chapter 17: Transformer Mathematics
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-17.webp" alt="Selective beams from geometric prisms focus on relationships in a structured crystal lattice." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-17.webp" alt="Selective beams from geometric prisms focus on relationships in a structured crystal lattice." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Attention builds context by weighting relationships across representations.</em></figcaption>
 </figure>
 

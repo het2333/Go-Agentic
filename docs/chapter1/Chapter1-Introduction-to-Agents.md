@@ -5,7 +5,7 @@
 # Chapter 1: Introducing Agentic AI
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-01.webp" alt="A decision core exchanges signals and actions across a transparent agent-environment boundary." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-01.webp" alt="A decision core exchanges signals and actions across a transparent agent-environment boundary." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>An agent becomes meaningful through a controlled boundary with its environment.</em></figcaption>
 </figure>
 
@@ -20,6 +20,168 @@ The user supplies one goal: “Run `check_hello.py`, diagnose the failure, chang
 | 3 | Write the smallest repair | Change it to `return username.strip()` | The file changed, but correctness is not yet proven |
 | 4 | Run the check again | `python3 check_hello.py` | Zero exit; all four cases pass |
 | 5 | Return the final explanation | Stop the loop | The answer cites the fresh verification result |
+
+<figure class="course-hero course-case-visual">
+  <img src="./assets/visuals/chapter-01-coding-loop.webp" alt="A crystalline decision core guides a five-stage code repair loop from failed test to verified result." width="1536" height="864" loading="lazy" decoding="async">
+  <figcaption><em>The model chooses; tools change the environment; fresh evidence decides the next turn.</em></figcaption>
+</figure>
+
+### First, Correct a Popular Saying
+
+You may have seen this deliberately provocative paraphrase:
+
+> “If you cannot build an agent in 300 lines, you can be no more than a junior engineer.”
+
+It can function as a learning challenge, but it is not an engineering-level rubric, and there is no reliable evidence that it is anyone's original quotation. Short code is not automatically safe, and long code does not prove deep understanding. What can be verified is Geoffrey Huntley's wording in *How to Build a Coding Agent*:
+
+> “It’s not that hard to build a coding agent. 300 lines of code running in a loop with LLM tokens.”
+
+The useful lesson is: **a minimal Coding Agent is not mysterious; it can be assembled from roughly 300 lines of ordinary code, an LLM, and a loop that continually receives feedback.** Here, “300 lines” is a demystification exercise. You need not memorize every syntax detail, but you should be able to explain why every module exists, where its data comes from, who executes an action, and what evidence permits termination.
+
+- [Read Geoffrey Huntley's article](https://ghuntley.com/agent/)
+- [Open the 266-line beginner edition, `coding_agent_beginner.py`](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/coding_agent_beginner.py)
+- [Compare the 444-line hardened edition, `coding_agent.py`](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/coding_agent.py)
+
+### Why Keep Both a 266-Line and a 444-Line Edition?
+
+The 266-line edition makes the mechanism visible. The 444-line edition shows the security details that appear when the same mechanism touches a real environment. Do not compress safeguards into unreadable one-liners merely to hit “300,” and do not let security machinery hide the loop during a first reading.
+
+| Edition | Best use | What it deliberately keeps or omits |
+| --- | --- | --- |
+| 266-line beginner edition | Run one full loop in a temporary directory and read it block by block | Keeps four tools, the model adapter, message history, and a round limit; path protection remains instructional |
+| 444-line hardened edition | Study stricter descriptor-based file boundaries, response validation, timeouts, and process cleanup | Longer because it exposes symlink races, redirects, malformed responses, and environment-variable leakage |
+
+**Use only a temporary exercise directory on the first run.** The beginner edition's `--workspace` is not an operating-system sandbox. Once `--allow-run` is enabled, child processes still have the current user's authority. Understand the loop first, then study the hardened edition.
+
+### Read the 266 Lines as Six Building Blocks
+
+| Block | Code entry | Beginner analogy | Problem it solves |
+| --- | --- | --- | --- |
+| Working rules | `SYSTEM` | Instructions for a temporary teammate | Ask the model to inspect, edit, and then verify |
+| Capability menu | `TOOLS`, `function_tool()` | A menu describes what can be ordered | Produce structured Tool Calls instead of vague intentions |
+| Workbench | `Workspace` | The hands that actually pick up tools | Read, write, run commands, and return results |
+| Model adapter | `ChatModel` | A courier between local state and the model | Build an HTTP request and retrieve the assistant message |
+| Agent heart | `run_agent()` | A continuously turning feedback wheel | Save decisions, execute tools, append Observations, and repeat |
+| Start button | `main()` | Power and wiring | Read configuration and connect the model, workbench, and loop |
+
+#### Block 1: `SYSTEM` and `messages` Form Working Memory
+
+The program begins with two messages:
+
+```python
+messages = [
+    {"role": "system", "content": SYSTEM},
+    {"role": "user", "content": task},
+]
+```
+
+Think of `messages` as the task notebook on the desk. `system` records standing rules, and `user` records the current goal. Later, model decisions are stored as `assistant` messages and tool results as `tool` messages. The model sees this accumulated notebook on each round, which is how it knows what just happened. This is not long-term memory: the list disappears when the process exits.
+
+#### Block 2: `TOOLS` Is a Menu, Not an Executor
+
+This schema only tells the model a tool's name and required arguments:
+
+```python
+function_tool(
+    "read_file",
+    "Read one UTF-8 text file.",
+    {"path": PATH},
+    ["path"],
+)
+```
+
+It reads no file. Just as a menu item does not cook itself, the model output `read_file({"path": "hello.py"})` does not change a computer. A side effect begins only after `Workspace.execute()` maps the request to a real Python function.
+
+#### Block 3: `Workspace` Is the Agent's Hand
+
+`Workspace` supplies four actions: list a directory, read a file, write a file, and run a program. `safe_path()` places a relative path below the workspace and rejects paths that resolve outside it. `run_command()` takes an argument array rather than a shell string, so `&&`, redirects, and wildcards are not expanded by a shell.
+
+```python
+result = subprocess.run(
+    argv,
+    cwd=self.root,
+    capture_output=True,
+    text=True,
+    timeout=self.command_timeout,
+    shell=False,
+)
+```
+
+The most important return value is not polished prose but `exit_code`. Zero usually means the process completed successfully; nonzero indicates failure. A failed test is still valuable Observation because it tells the model what to investigate next.
+
+#### Block 4: `ChatModel` Is Only a Model Boundary
+
+`ChatModel` encodes `model`, `messages`, and `tools` as JSON, sends them to the model service over HTTP, and extracts `choices[0].message`. The model may return ordinary text or `tool_calls`. This layer never edits files, so replacing a model service does not require rewriting `Workspace` or the control loop.
+
+The API key belongs in the request header, never in tutorial source or Git. The beginner edition accepts a service compatible with Chat Completions Function Calling. A different API protocol requires a different adapter, not a different agent architecture.
+
+#### Block 5: `run_agent()` Is the Actual Agent Loop
+
+After removing logging and defensive checks, the heart is:
+
+```python
+for round_number in range(1, max_rounds + 1):
+    message = model(messages, tools)       # model chooses the next step
+    messages.append(message)               # preserve that decision
+    calls = message.get("tool_calls") or []
+
+    if not calls:
+        return message["content"], messages
+
+    for tool_call in calls:
+        observation = workspace.execute(tool_call)
+        messages.append({
+            "role": "tool",
+            "tool_call_id": tool_call["id"],
+            "content": observation,
+        })
+```
+
+In plain language:
+
+1. Give the model everything currently known;
+2. the model chooses an answer or requests a tool;
+3. Python executes the tool—the model does not;
+4. record the real result in `messages`;
+5. ask the model again with that new evidence;
+6. stop when the model requests no more tools, or force termination when the round budget is exhausted.
+
+`tool_call_id` behaves like a parcel tracking number. One model turn may request several tools; each result must carry the original ID so the service can match result to request.
+
+#### Block 6: `main()` Wires the Parts Together
+
+`main()` reads the task, workspace, round budget, and `--allow-run`, then loads model configuration from environment variables. It creates `Workspace`, creates `ChatModel`, and finally calls `run_agent()`. This is startup code, not reasoning logic.
+
+### Follow `hello.py` Around One Complete Loop
+
+| Moment | What is appended to `messages` | What actually changes in the environment | What the agent now knows |
+| --- | --- | --- | --- |
+| Start | system rules + user task | Nothing | Only the goal; it does not yet know whether the code fails |
+| First check | assistant requests `run_command`; tool returns `exit_code=1` | Python executes the check | The defect has been reproduced |
+| Read code | assistant requests `read_file`; tool returns source | The file is only read | It sees `return username` |
+| Write repair | assistant requests `write_file`; tool returns “written” | `hello.py` changes to `.strip()` | It knows an edit occurred, not that it is correct |
+| Check again | assistant requests `run_command`; tool returns `exit_code=0` | The check executes again | Fresh passing evidence exists |
+| Finish | assistant returns ordinary text | No more tools run | It can describe the repair and verification |
+
+The distinction between writing and rechecking is crucial: **“file written” does not mean “bug fixed.”** The write receipt proves an Action occurred; a fresh zero exit from the check is the Verification for this task.
+
+### Five Common Beginner Misunderstandings
+
+1. **A prompt is not an agent.** It supplies rules; the loop, tools, and environment create an actionable system.
+2. **A Tool Call is not a side effect.** The model submits a structured request; Python performs the action.
+3. **The final answer is not success evidence.** “Fixed” cannot replace test output.
+4. **A workspace is not a sandbox.** Command tools retain the current user's authority, so start in a temporary directory.
+5. **Three hundred lines are only an entrance.** Production systems still need precise editing, approvals, durable state, compaction, rollback, audit, and independent evaluation; later chapters add these progressively.
+
+### Your First Exercise
+
+```bash
+cd code/go-agentic/01-minimal-loop
+python3 -m pytest test_coding_agent_beginner.py -q
+python3 coding_agent_beginner.py --help
+```
+
+Run the offline tests first; they require no API key. Then follow the guide to copy `demo/` into a temporary directory and connect a tool-calling model. Read in this order: `run_agent()` → `TOOLS` → `Workspace.execute()` → `ChatModel.__call__()` → `main()`. After every block, answer one question in your own words: “What does it receive, what does it return, and how does it fail?”
 
 The model never touches the file or terminal directly. It emits structured tool calls; the Python harness validates arguments, performs side effects, and appends each observation to `messages`. Nor does the code hard-wire “read, edit, test.” The model chooses the next step from current evidence, while the check result determines whether the task may finish.
 

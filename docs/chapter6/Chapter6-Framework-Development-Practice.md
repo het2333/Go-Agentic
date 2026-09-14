@@ -5,7 +5,7 @@
 # Chapter 6: Agent Development Lifecycle and Framework Selection
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-06.webp" alt="Specialized runtime vessels approach branching channels for different framework lifecycles." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-06.webp" alt="Specialized runtime vessels approach branching channels for different framework lifecycles." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Framework choice depends on the lifecycle and controls a system must support.</em></figcaption>
 </figure>
 

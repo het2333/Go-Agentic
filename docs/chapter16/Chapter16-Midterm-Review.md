@@ -1,7 +1,7 @@
 # Chapter 16: Midterm Review, Retrospective, and Quick Reference
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-16.webp" alt="An opened agent machine is inspected module by module at a midterm review bench." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-16.webp" alt="An opened agent machine is inspected module by module at a midterm review bench." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>The midterm review connects architecture, observed behavior, and evidence.</em></figcaption>
 </figure>
 

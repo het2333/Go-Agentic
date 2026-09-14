@@ -1,7 +1,7 @@
 # 第二十一章 高性能 LLM 推理
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-21.webp" alt="请求经过批处理与调度，穿过内存和并行计算单元后流式输出结果。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-21.webp" alt="请求经过批处理与调度，穿过内存和并行计算单元后流式输出结果。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>高效推理需要协调批处理、内存、调度与并行执行。</em></figcaption>
 </figure>
 

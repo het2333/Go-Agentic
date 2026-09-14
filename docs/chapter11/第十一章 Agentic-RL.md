@@ -1,7 +1,7 @@
 # 第十一章 Agentic RL 与推理模型
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-11.webp" alt="发光探针探索分叉的策略迷宫，并收敛到一条稳健行动路径。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-11.webp" alt="发光探针探索分叉的策略迷宫，并收敛到一条稳健行动路径。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>智能体推理可以理解为对候选策略进行搜索与剪枝。</em></figcaption>
 </figure>
 

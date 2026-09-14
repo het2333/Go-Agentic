@@ -1,7 +1,7 @@
 # 第二十章 GPU 系统与高速互联
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-20.webp" alt="处理器芯片岛通过局部高速桥梁与更广泛的计算网络互联。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-20.webp" alt="处理器芯片岛通过局部高速桥梁与更广泛的计算网络互联。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>GPU 系统性能取决于计算单元之间的拓扑与带宽。</em></figcaption>
 </figure>
 

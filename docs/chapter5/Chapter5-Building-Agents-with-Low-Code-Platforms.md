@@ -5,7 +5,7 @@
 # Chapter 5: Tools, Environments, and Agentic RAG
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-05.webp" alt="A modular agent core connects to a tool rack, sandboxed environment, and retrieval well." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-05.webp" alt="A modular agent core connects to a tool rack, sandboxed environment, and retrieval well." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Practical agent builders combine tools, environments, and retrieval around a controlled core.</em></figcaption>
 </figure>
 

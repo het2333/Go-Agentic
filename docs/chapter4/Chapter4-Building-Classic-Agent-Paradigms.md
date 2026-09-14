@@ -5,7 +5,7 @@
 # Chapter 4: Agent Design Patterns and Loops
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-04.webp" alt="Four instrument stations form a closed observation, decision, action, and verification loop." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-04.webp" alt="Four instrument stations form a closed observation, decision, action, and verification loop." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Reliable agents repeatedly observe, decide, act, and verify.</em></figcaption>
 </figure>
 

@@ -1,7 +1,7 @@
 # Chapter 18: Pretraining, Optimization, and Model Compression
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-18.webp" alt="A large neural sculpture is optimized and compressed into a compact precise engine." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-18.webp" alt="A large neural sculpture is optimized and compressed into a compact precise engine." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Training and compression trade compute and size against retained capability.</em></figcaption>
 </figure>
 

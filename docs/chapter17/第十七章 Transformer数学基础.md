@@ -1,7 +1,7 @@
 # 第十七章 Transformer 数学基础
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-17.webp" alt="几何棱镜发出的选择性光束聚焦于结构化晶格中的关系。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-17.webp" alt="几何棱镜发出的选择性光束聚焦于结构化晶格中的关系。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>注意力通过为表征之间的关系分配权重来构建上下文。</em></figcaption>
 </figure>
 

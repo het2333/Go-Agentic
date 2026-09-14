@@ -3,7 +3,7 @@
 # Chapter 13: Real-World Task Execution Agents
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-13.webp" alt="A secure orchestration crane routes task capsules through enterprise services and audit gates." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-13.webp" alt="A secure orchestration crane routes task capsules through enterprise services and audit gates." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Enterprise agents require identity, durability, auditability, and controlled service access.</em></figcaption>
 </figure>
 

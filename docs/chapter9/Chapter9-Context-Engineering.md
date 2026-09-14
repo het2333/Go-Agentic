@@ -3,7 +3,7 @@
 # Chapter 9: Context Engineering and Loop Engineering
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-09.webp" alt="Evidence fragments form a braided stream that passes a selective context aperture." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-09.webp" alt="Evidence fragments form a braided stream that passes a selective context aperture." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Context engineering selects and orders evidence before it reaches the model.</em></figcaption>
 </figure>
 

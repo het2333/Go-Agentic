@@ -3,7 +3,7 @@
 # 第七章 现代智能体运行时：以 Pi 为主线
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-07.webp" alt="分层控制中枢围绕执行核心协调调度、工具、状态与遥测。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-07.webp" alt="分层控制中枢围绕执行核心协调调度、工具、状态与遥测。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>自研运行时需要一个治理所有执行边界的控制平面。</em></figcaption>
 </figure>
 

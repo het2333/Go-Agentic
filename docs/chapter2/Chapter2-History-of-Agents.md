@@ -5,7 +5,7 @@
 # Chapter 2: Agent History and Modern Runtimes
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-02.webp" alt="Three mechanical forms trace the evolution from reactive automation to adaptive agent runtime." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-02.webp" alt="Three mechanical forms trace the evolution from reactive automation to adaptive agent runtime." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Agent runtimes evolved by adding planning, tools, memory, and adaptation.</em></figcaption>
 </figure>
 

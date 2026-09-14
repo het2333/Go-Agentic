@@ -1,7 +1,7 @@
 # 第二十二章 分布式训练与 RLHF 基础设施
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-22.webp" alt="同步计算环路传递模型更新与受控的偏好反馈。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-22.webp" alt="同步计算环路传递模型更新与受控的偏好反馈。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>分布式训练基础设施在大规模环境中协调模型状态、梯度与反馈。</em></figcaption>
 </figure>
 

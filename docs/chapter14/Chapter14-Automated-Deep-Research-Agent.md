@@ -3,7 +3,7 @@
 # Chapter 14: Deep Research Agents
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-14.webp" alt="A research observatory filters source crystals and assembles them around a hypothesis sphere." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-14.webp" alt="A research observatory filters source crystals and assembles them around a hypothesis sphere." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Deep research depends on provenance, evidence selection, and visible synthesis.</em></figcaption>
 </figure>
 

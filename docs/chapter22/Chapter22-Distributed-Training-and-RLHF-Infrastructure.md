@@ -1,7 +1,7 @@
 # Chapter 22: Distributed Training and RLHF Infrastructure
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-22.webp" alt="Synchronized compute rings circulate model updates and controlled preference feedback." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-22.webp" alt="Synchronized compute rings circulate model updates and controlled preference feedback." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Distributed training infrastructure coordinates model state, gradients, and feedback at scale.</em></figcaption>
 </figure>
 

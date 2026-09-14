@@ -1,20 +1,9 @@
 {
   "schema_version": 1,
   "upstream_ref": "upstream/main",
-  "include": [
-    "README.md",
-    "README_EN.md",
-    "docs/README.md",
-    "docs/README_EN.md",
-    "docs/Preface.md",
-    "docs/前言.md",
-    "docs/Sources-and-Acknowledgements.md",
-    "docs/来源与致谢.md",
-    "docs/chapter*/**",
-    "docs/appendices/**"
-  ],
+  "include": [],
   "summary": {
-    "audited_files": 64,
+    "audited_files": 62,
     "unallowed_findings": 0,
     "unreviewed_files": 0
   },
@@ -110,20 +99,6 @@
       ],
       "final_unallowed_count": 0,
       "review_notes": "Independent English course-home review completed; the three routes, 25-chapter sequence, nine stage deliverables, and safety progression align with the Chinese home."
-    },
-    "docs/Sources-and-Acknowledgements.md": {
-      "reviewed": true,
-      "finding_count_before_review": 0,
-      "rewritten_sections": [
-        "Scope of this disclosure",
-        "Software projects and design reference",
-        "Standards and technical guidance actually cited",
-        "Papers and books actually cited",
-        "License boundary"
-      ],
-      "reviewed_sections": [],
-      "final_unallowed_count": 0,
-      "review_notes": "The factual source disclosure remains aligned with Chinese. The software-reference paragraph no longer uses upstream positioning, and the license section now names all four Apache-2.0 software paths while preserving Pi, DeepSeek Harness, Hermes, reference-PDF, and cited-source disclosures."
     },
     "docs/appendices/Appendix-A-Question-Bank.md": {
       "reviewed": true,
@@ -1240,20 +1215,6 @@
       "reviewed_sections": [],
       "final_unallowed_count": 0,
       "review_notes": "中文前言已按独立课程叙事完整重建；采购执行案例、数学与系统基础、生产安全、三条路线和毕业设计递进均与英文前言对齐。"
-    },
-    "docs/来源与致谢.md": {
-      "reviewed": true,
-      "finding_count_before_review": 0,
-      "rewritten_sections": [
-        "披露范围",
-        "软件项目与设计参考",
-        "实际引用的标准与技术指南",
-        "实际引用的论文与书籍",
-        "许可证边界"
-      ],
-      "reviewed_sections": [],
-      "final_unallowed_count": 0,
-      "review_notes": "事实性来源披露继续与英文页对齐；软件参考段已移除上游定位措辞，许可证段列出四个 Apache-2.0 软件路径，同时保留 Pi、DeepSeek Harness、Hermes、参考 PDF 与实际引用来源的披露。"
     }
   }
 }

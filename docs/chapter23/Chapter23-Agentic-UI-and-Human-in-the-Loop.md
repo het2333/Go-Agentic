@@ -1,7 +1,7 @@
 # Chapter 23: Agentic UI and Human in the Loop
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-23.webp" alt="A human hand controls a consent lever while an autonomous action waits at a guarded gateway." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-23.webp" alt="A human hand controls a consent lever while an autonomous action waits at a guarded gateway." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Agentic interfaces make consequential actions inspectable and subject to human approval.</em></figcaption>
 </figure>
 

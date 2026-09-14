@@ -1,7 +1,7 @@
 # Chapter 21: High-Performance LLM Inference
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-21.webp" alt="Requests are batched and scheduled through memory and parallel compute before streaming results." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-21.webp" alt="Requests are batched and scheduled through memory and parallel compute before streaming results." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Efficient inference coordinates batching, memory, scheduling, and parallel execution.</em></figcaption>
 </figure>
 

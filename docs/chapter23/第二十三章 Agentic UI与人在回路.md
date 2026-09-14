@@ -1,7 +1,7 @@
 # 第二十三章 Agentic UI 与人在回路
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-23.webp" alt="人手控制同意杆，自动化行动在受控闸门前等待。" width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-23.webp" alt="人手控制同意杆，自动化行动在受控闸门前等待。" width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>智能体界面让关键行动可检查，并接受人类审批。</em></figcaption>
 </figure>
 

@@ -1,7 +1,7 @@
 # Chapter 24: Production Runtime and Platform Engineering
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-24.webp" alt="A resilient offshore control platform coordinates runtime cells, policy, telemetry, and rollback routes." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-24.webp" alt="A resilient offshore control platform coordinates runtime cells, policy, telemetry, and rollback routes." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Production agent platforms combine observability, policy, redundancy, and recovery.</em></figcaption>
 </figure>
 

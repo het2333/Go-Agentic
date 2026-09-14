@@ -3,7 +3,7 @@
 # Chapter 8: RAG and Memory Systems
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-08.webp" alt="A geological cutaway separates fleeting, working, and long-term memory feeding an agent core." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-08.webp" alt="A geological cutaway separates fleeting, working, and long-term memory feeding an agent core." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Useful memory systems separate timescales and retrieve only what the task needs.</em></figcaption>
 </figure>
 

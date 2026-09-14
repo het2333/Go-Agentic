@@ -1,7 +1,7 @@
 from pathlib import Path
 import re
 import unittest
-from urllib.parse import unquote
+from urllib.parse import unquote, urljoin, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -91,6 +91,22 @@ def mapping_has_appendix(chinese_name: str, english_name: str) -> bool:
 
 
 class CourseStructureTests(unittest.TestCase):
+    def test_chapter_hero_urls_stay_inside_github_pages_project_path(self):
+        publication_base = "https://example.test/Go-Agentic/"
+        chapter_files = sorted(DOCS.glob("chapter*/*.md"))
+        image_sources = []
+        for chapter_file in chapter_files:
+            markdown = chapter_file.read_text(encoding="utf-8")
+            image_sources.extend(re.findall(r'<img[^>]+src="([^"]+)"', markdown))
+
+        self.assertEqual(len(image_sources), 52)
+        for source in image_sources:
+            resolved = urlsplit(urljoin(publication_base, source)).path
+            self.assertTrue(
+                resolved.startswith("/Go-Agentic/assets/visuals/"),
+                f"chapter hero escapes the GitHub Pages project path: {source} -> {resolved}",
+            )
+
     def test_opening_case_links_to_runnable_lab_and_progressive_upgrade_map(self):
         homepage_expectations = (
             (DOCS / "README.md", "进入第一章查看完整轨迹", "./chapter1/第一章%20初识智能体.md"),
@@ -117,6 +133,7 @@ class CourseStructureTests(unittest.TestCase):
         )
         expected_lab_targets = {
             "code/go-agentic/01-minimal-loop/CODING_AGENT.md",
+            "code/go-agentic/01-minimal-loop/coding_agent_beginner.py",
             "code/go-agentic/01-minimal-loop/coding_agent.py",
         }
         for chapter_file, appendix_target in chapter_files:

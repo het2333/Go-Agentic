@@ -135,7 +135,7 @@ class VisualReferenceTests(unittest.TestCase):
 
     def test_every_chapter_pair_references_its_hero(self):
         for chapter in range(1, 26):
-            expected = f"../assets/visuals/chapter-{chapter:02d}.webp"
+            expected = f"./assets/visuals/chapter-{chapter:02d}.webp"
             for file in chapter_markdown_files(chapter):
                 self.assertIn(
                     expected,
@@ -158,7 +158,7 @@ class VisualReferenceTests(unittest.TestCase):
         ]
         for chapter in range(1, 26):
             cases.extend(
-                (file, f"chapter-{chapter:02d}", f"../assets/visuals/chapter-{chapter:02d}.webp")
+                (file, f"chapter-{chapter:02d}", f"./assets/visuals/chapter-{chapter:02d}.webp")
                 for file in chapter_markdown_files(chapter)
             )
 

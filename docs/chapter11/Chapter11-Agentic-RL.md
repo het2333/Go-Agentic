@@ -1,7 +1,7 @@
 # Chapter 11: Agentic RL and Reasoning Models
 
 <figure class="course-hero">
-  <img src="../assets/visuals/chapter-11.webp" alt="Luminous probes explore a branching policy maze and converge on one robust action route." width="1536" height="864" loading="lazy" decoding="async">
+  <img src="./assets/visuals/chapter-11.webp" alt="Luminous probes explore a branching policy maze and converge on one robust action route." width="1536" height="864" loading="lazy" decoding="async">
   <figcaption><em>Agent reasoning can be understood as searching and pruning possible policies.</em></figcaption>
 </figure>
 

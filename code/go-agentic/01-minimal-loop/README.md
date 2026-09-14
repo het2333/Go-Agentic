@@ -2,7 +2,7 @@
 
 This fixture supports Chapters 1–3 of Go Agentic. It demonstrates the smallest useful contract among a policy, a harness, tools, and an environment without calling a model API.
 
-**Want a real model and real files?** See [单文件原生 Coding Agent（中文运行与阅读指南）](./CODING_AGENT.md). `coding_agent.py` adds a standard-library-only Chat Completions loop, file tools, and opt-in command execution alongside this deterministic fixture.
+**Want a real model and real files?** See [单文件原生 Coding Agent（中文运行与阅读指南）](./CODING_AGENT.md). Start with the 266-line `coding_agent_beginner.py`, then compare it with the 444-line hardened `coding_agent.py`. Both use only the standard library and add a Chat Completions tool loop, file tools, and opt-in command execution alongside this deterministic fixture.
 
 ## Run
 
@@ -16,6 +16,9 @@ The production fixture uses only the Python standard library. The tests need pyt
 
 - `agent.py` defines typed decisions and observations, the bounded loop, a deterministic fake model policy, and an in-memory login workspace.
 - `test_agent.py` proves the successful trace, conversion of tool exceptions into observations, and maximum-step termination.
+- `coding_agent_beginner.py` keeps a real model-and-tools loop within 300 lines for a first code reading.
+- `test_coding_agent_beginner.py` runs that loop against real temporary files and a real Python check process.
+- `coding_agent.py` and `test_coding_agent.py` add stricter production-oriented boundaries and broader failure coverage.
 
 ## Canonical Trace
 
