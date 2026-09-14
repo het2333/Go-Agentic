@@ -26,7 +26,7 @@ The model never touches the file or terminal directly. It emits structured tool 
 - [Run the single-file native coding agent](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/CODING_AGENT.md): connect a real tool-calling model and complete the same task in a temporary exercise directory.
 - [Inspect the complete `coding_agent.py`](https://github.com/het2333/Go-Agentic/blob/main/code/go-agentic/01-minimal-loop/coding_agent.py): read `run_agent()` first, then the model, workspace, and tool boundaries.
 
-No API key is required to begin. Section 1.4 supplies a deterministic offline version of the same class of failure so that you can inspect the loop and evidence first. [Appendix C](../appendices/Appendix-C-Labs-and-Troubleshooting.md) then turns this minimal agent into a progressive lab covering tools, context, evaluation, and a production runtime.
+No API key is required to begin. Section 1.4 supplies a deterministic offline version of the same class of failure so that you can inspect the loop and evidence first. [Appendix C](./appendices/Appendix-C-Labs-and-Troubleshooting.md) then turns this minimal agent into a progressive lab covering tools, context, evaluation, and a production runtime.
 
 This case exposes the boundary between a chat model and an agent: a chat model generates an answer; an agent advances a task in an environment. Both may use the same kind of large language model, but an agent also needs tools, state, a control loop, authority boundaries, and a verifiable stopping condition. This chapter establishes the course vocabulary and dissects a minimal login-failure loop without an API key or network access.
 

@@ -106,14 +106,20 @@ class CourseStructureTests(unittest.TestCase):
             self.assertNotIn("codex://", markdown)
 
         chapter_files = (
-            DOCS / "chapter1" / "第一章 初识智能体.md",
-            DOCS / "chapter1" / "Chapter1-Introduction-to-Agents.md",
+            (
+                DOCS / "chapter1" / "第一章 初识智能体.md",
+                "./appendices/附录C%20实验与排错索引.md",
+            ),
+            (
+                DOCS / "chapter1" / "Chapter1-Introduction-to-Agents.md",
+                "./appendices/Appendix-C-Labs-and-Troubleshooting.md",
+            ),
         )
         expected_lab_targets = {
             "code/go-agentic/01-minimal-loop/CODING_AGENT.md",
             "code/go-agentic/01-minimal-loop/coding_agent.py",
         }
-        for chapter_file in chapter_files:
+        for chapter_file, appendix_target in chapter_files:
             markdown = chapter_file.read_text(encoding="utf-8")
             targets = public_repository_targets(markdown)
             self.assertTrue(
@@ -121,6 +127,7 @@ class CourseStructureTests(unittest.TestCase):
                 f"opening case must expose the runnable guide and implementation: {chapter_file}",
             )
             self.assertNotIn("codex://", markdown)
+            self.assertIn(appendix_target, markdown_links(markdown))
 
         appendix_files = (
             DOCS / "appendices" / "附录C 实验与排错索引.md",
